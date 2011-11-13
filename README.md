@@ -14,6 +14,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:0]
 NSString *ago = [date timeAgo];
 NSLog(@"Output is: \"%@\"", ago);
+2011-11-12 17:19:25.608 Proj[0:0] Output is: "41 years ago"
 </pre>
 
 ## Future Directions
