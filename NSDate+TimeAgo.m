@@ -9,33 +9,33 @@
     double deltaMinutes = deltaSeconds / 60.0f;
     
     if(deltaSeconds < 5) {
-        return @"Just now";
+        return NSLocalizedString(@"Just now", nil);
     } else if(deltaSeconds < 60) {
-        return [NSString stringWithFormat:@"%d seconds ago", (int)deltaSeconds];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d seconds ago", nil), (int)deltaSeconds];
     } else if(deltaSeconds < 120) {
-        return @"A minute ago";
+        return NSLocalizedString(@"A minute ago", nil);
     } else if (deltaMinutes < 60) {
-        return [NSString stringWithFormat:@"%d minutes ago", (int)deltaMinutes];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d minutes ago", nil), (int)deltaMinutes];
     } else if (deltaMinutes < 120) {
-        return @"An hour ago";
+        return NSLocalizedString(@"An hour ago", nil);
     } else if (deltaMinutes < (24 * 60)) {
-        return [NSString stringWithFormat:@"%d hours ago", (int)floor(deltaMinutes/60)];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d hours ago", nil), (int)floor(deltaMinutes/60)];
     } else if (deltaMinutes < (24 * 60 * 2)) {
-        return @"Yesterday";
+        return NSLocalizedString(@"Yesterday", nil);
     } else if (deltaMinutes < (24 * 60 * 7)) {
-        return [NSString stringWithFormat:@"%d days ago", (int)floor(deltaMinutes/(60 * 24))];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d days ago", nil), (int)floor(deltaMinutes/(60 * 24))];
     } else if (deltaMinutes < (24 * 60 * 14)) {
-        return @"Last week";
+        return NSLocalizedString(@"Last week", nil);
     } else if (deltaMinutes < (24 * 60 * 31)) {
-        return [NSString stringWithFormat:@"%d weeks ago", (int)floor(deltaMinutes/(60 * 24 * 7))];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d weeks ago", nil), (int)floor(deltaMinutes/(60 * 24 * 7))];
     } else if (deltaMinutes < (24 * 60 * 61)) {
-        return @"Last month";
+        return NSLocalizedString(@"Last month", nil);
     } else if (deltaMinutes < (24 * 60 * 365.25)) {
-        return [NSString stringWithFormat:@"%d months ago", (int)floor(deltaMinutes/(60 * 24 * 30))];
+        return [NSString stringWithFormat:NSLocalizedString(@"%d months ago", nil), (int)floor(deltaMinutes/(60 * 24 * 30))];
     } else if (deltaMinutes < (24 * 60 * 731)) {
-        return @"Last year";
+        return NSLocalizedString(@"Last year", nil);
     }
-    return [NSString stringWithFormat:@"%d years ago", (int)floor(deltaMinutes/(60 * 24 * 365))];
+    return [NSString stringWithFormat:NSLocalizedString(@"%d years ago", nil), (int)floor(deltaMinutes/(60 * 24 * 365))];
 }
 
 @end
