@@ -23,7 +23,7 @@ Would be nice to
 
 1.  add customization options (e.g., should it report seconds or just "a minute ago") 
 2.  add string customization
-3.  add string localization
+3.  have more localizations
 4.  add a separate method that understands "Last Friday", etc.
 5.  other
 
