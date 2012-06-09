@@ -35,6 +35,6 @@ Released under ISC (similar to 2-clause BSD)
 
 ## Credits
 
-Originally based on code Christopher Pickslay posted to Forrst. Used with permission.
+Originally based on code Christopher Pickslay posted to Forrst. Used with permission. http://twitter.com/cpickslay 
 
-Ramon Torres began support for internationalization/localization. Added `es` strings.
+Ramon Torres began support for internationalization/localization. Added `es` strings. http://rtorres.me/
