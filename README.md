@@ -8,7 +8,7 @@ NSDate+TimeAgo currently supports the following languages: en, es
 
 ## Use
 
-1.  Add the files to your project
+1.  Add the files to your project (including the localization files)
 2.  Import the header using  `#import "NSDate+TimeAgo.h"`
 3.  Call the `timeAgo` method in the following way:
 
