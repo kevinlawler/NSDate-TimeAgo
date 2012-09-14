@@ -6,6 +6,8 @@ This functionality has variously been referred to as a "time ago", "time since",
 
 NSDate+TimeAgo currently supports the following languages: en, es
 
+If you know a language not listed here, please consider submitting a translation.
+
 ## Use
 
 1.  Add the files to your project (including the localization files)
