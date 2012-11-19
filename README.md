@@ -45,4 +45,4 @@ Dennis Zhuang added `zh_Hans` Chinese Simplified strings. http://fnil.net/
 
 Mozart Petter added `pt_BR` Brazilian Portuguese strings. http://www.mozartpetter.com/
 
-Stéphane Gerardot added `fr` French strings. http://bsoft.fr/
+Stéphane Gerardot added `fr` French strings.
