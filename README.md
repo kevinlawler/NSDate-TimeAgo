@@ -4,7 +4,7 @@ This is an iOS, Objective-C, Cocoa Touch, iPhone, iPad category for NSDate. It g
 
 This functionality has variously been referred to as a "time ago", "time since", or "fuzzy date" feature.
 
-NSDate+TimeAgo currently supports the following languages: en (English), es (Spanish), zh_Hans (Chinese Simplified), pt_BR (Brazilian Portuguese)
+NSDate+TimeAgo currently supports the following languages: en (English), es (Spanish), zh_Hans (Chinese Simplified), pt_BR (Brazilian Portuguese), fr (French)
 
 If you know a language not listed here, please consider submitting a translation.
 
@@ -44,3 +44,5 @@ Ramon Torres began support for internationalization/localization. Added `es` str
 Dennis Zhuang added `zh_Hans` Chinese Simplified strings. http://fnil.net/
 
 Mozart Petter added `pt_BR` Brazilian Portuguese strings. http://www.mozartpetter.com/
+
+Stéphane Gerardot added `fr` French strings. http://bsoft.fr/
