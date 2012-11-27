@@ -7,7 +7,8 @@
     NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
 #endif
 
--(NSString *)timeAgo {
+- (NSString *)timeAgo 
+{
     NSDate *now = [NSDate date];
     double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
     double deltaMinutes = deltaSeconds / 60.0f;
@@ -41,6 +42,21 @@
     }
 
     return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(@"%d years ago"), (int)floor(deltaMinutes/(60 * 24 * 365))];
+}
+
+- (NSString *) timeAgoWithLimit:(NSTimeInterval)limit
+{
+    return [self timeAgoWithLimit:limit dateFormat:NSDateFormatterFullStyle andTimeFormat:NSDateFormatterFullStyle];
+}
+
+- (NSString *) timeAgoWithLimit:(NSTimeInterval)limit dateFormat:(NSDateFormatterStyle)dFormatter andTimeFormat:(NSDateFormatterStyle)tFormatter
+{
+    if (fabs([self timeIntervalSinceDate:[NSDate date]]) <= limit)
+        return [self timeAgo];
+    
+    return [NSDateFormatter localizedStringFromDate:self
+                                          dateStyle:dFormatter
+                                          timeStyle:tFormatter];
 }
 
 @end
