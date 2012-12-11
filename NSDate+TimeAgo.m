@@ -128,7 +128,7 @@
         int Y = (int)floor(value) % 10;
         if(Y > 4) return @"";
         if(Y != 1 && Y < 5) return @"_";
-        if(Y == 1) return @"";
+        if(Y == 1) return @"__";
     }
     
     // Add more languages here, which are have specific translation rules...
