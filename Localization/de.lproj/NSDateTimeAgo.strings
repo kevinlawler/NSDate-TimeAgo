@@ -1,0 +1,41 @@
+/* No comment provided by engineer. */
+ "%d days ago" = "Vor %d Tagen";
+ 
+ /* No comment provided by engineer. */
+ "%d hours ago" = "Vor %d Stunden";
+ 
+ /* No comment provided by engineer. */
+ "%d minutes ago" = "Vor %d Minuten";
+ 
+ /* No comment provided by engineer. */
+ "%d months ago" = "Vor %d Monaten";
+ 
+ /* No comment provided by engineer. */
+ "%d seconds ago" = "Vor %d Sekunden";
+ 
+ /* No comment provided by engineer. */
+ "%d weeks ago" = "Vor %d Wochen";
+ 
+ /* No comment provided by engineer. */
+ "%d years ago" = "Vor %d Jahren";
+ 
+ /* No comment provided by engineer. */
+ "A minute ago" = "Vor %d Minute";
+ 
+ /* No comment provided by engineer. */
+ "An hour ago" = "Vor %d Stunde";
+ 
+/* No comment provided by engineer. */
+"Just now" = "Gerade eben";
+
+/* No comment provided by engineer. */
+"Last month" = "Letzten Monat";
+
+/* No comment provided by engineer. */
+"Last week" = "Letzte Woche";
+
+/* No comment provided by engineer. */
+"Last year" = "Letztes Jahr";
+
+/* No comment provided by engineer. */
+"Yesterday" = "Gestern";
