@@ -126,7 +126,7 @@
     // Russian (ru)
     if([localeCode isEqual:@"ru"]) {
         int Y = (int)floor(value) % 10;
-        if(Y > 4) return @"";
+        if(Y > 4 || value == 11) return @"";
         if(Y != 1 && Y < 5) return @"_";
         if(Y == 1) return @"__";
     }
