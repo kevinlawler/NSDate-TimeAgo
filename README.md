@@ -63,6 +63,6 @@ Stéphane Gerardot added `fr` French strings.
 
 Marco Sanson added `it` Italian strings. http://marcosanson.tumblr.com/
 
-Almas Adilbek added `ru` Russian strings. http://mixdesign.kz/
+Almas Adilbek added `ru` Russian strings. Extended logic to support Russian idioms. http://mixdesign.kz/
 
 Mallox51 added `de` German strings. https://github.com/Mallox51
