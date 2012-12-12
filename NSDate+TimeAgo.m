@@ -109,15 +109,18 @@
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 
 /*
- - Method : getLocaleFormatUnderscoresWithValue
- - Param  : value (Double value of seconds or minutes)
- - Return : @"" or the set of underscores ("_")
-            in order to define exact translation format for specific translation rules.
-            (Ex: "%d _seconds ago" for "%d секунды назад", "%d __seconds ago" for "%d секунда назад",
-            and default format without underscore %d seconds ago" for "%d секунд назад")
-   Note   : This method must be used for all languages that have specific translation rules. 
-            Using method argument "value" you must define all possible conditions language have for translation 
-            and return set of underscores ("_") as it is an ID for locale format. No underscore ("") means default locale format;
+ - Author  : Almas Adilbek
+ - Method  : getLocaleFormatUnderscoresWithValue
+ - Param   : value (Double value of seconds or minutes)
+ - Return  : @"" or the set of underscores ("_")
+             in order to define exact translation format for specific translation rules.
+             (Ex: "%d _seconds ago" for "%d секунды назад", "%d __seconds ago" for "%d секунда назад",
+             and default format without underscore %d seconds ago" for "%d секунд назад")
+   Updated : 12/12/2012
+ 
+   Note    : This method must be used for all languages that have specific translation rules. 
+             Using method argument "value" you must define all possible conditions language have for translation 
+             and return set of underscores ("_") as it is an ID for locale format. No underscore ("") means default locale format;
  */
 -(NSString *)getLocaleFormatUnderscoresWithValue:(double)value
 {
@@ -125,10 +128,14 @@
     
     // Russian (ru)
     if([localeCode isEqual:@"ru"]) {
+        NSString *valueStr = [NSString stringWithFormat:@"%.f", value];
+        int l = valueStr.length;
+        int XY = [[valueStr substringWithRange:NSMakeRange(l - 2, l)] intValue];
         int Y = (int)floor(value) % 10;
-        if(Y > 4 || value == 11) return @"";
-        if(Y != 1 && Y < 5) return @"_";
-        if(Y == 1) return @"__";
+        
+        if(Y == 0 || Y > 4 || XY == 11) return @"";
+        if(Y != 1 && Y < 5)             return @"_";
+        if(Y == 1)                      return @"__";
     }
     
     // Add more languages here, which are have specific translation rules...
