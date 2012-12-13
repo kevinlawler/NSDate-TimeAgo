@@ -49,6 +49,8 @@ Would be nice to
 
 Released under ISC (similar to 2-clause BSD)
 
+http://wikipedia.org/wiki/ISC_license
+
 ## Credits
 
 Originally based on code Christopher Pickslay posted to Forrst. Used with permission. http://twitter.com/cpickslay 
