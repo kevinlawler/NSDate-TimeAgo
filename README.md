@@ -2,7 +2,7 @@
 
 This is an iOS, Objective-C, Cocoa Touch, iPhone, iPad category for NSDate. It gives NSDate the ability to report times like "A moment ago", "30 seconds ago", "5 minutes ago", "Yesterday", "Last Month", "2 Years Ago", and so on.
 
-This functionality has variously been referred to as a "time ago", "time since", or "fuzzy date" feature.
+This functionality has variously been referred to as a "time ago", "time since", "relative date", or "fuzzy date" feature.
 
 NSDate+TimeAgo currently supports the following languages: en (English), es (Spanish), zh_Hans (Chinese Simplified), pt_BR (Brazilian Portuguese), fr (French), it (Italian), ru (Russian), de (German)
 
