@@ -10,7 +10,7 @@ If you know a language not listed here, please consider submitting a translation
 
 ## Use
 
-1.  Add the files to your project (including the localization files)
+1.  Add the files to your project. Add localization files, if desired. Localization files can be scattered anywhere. Xcode doesn't care as long as they are present in the project file tree.
 2.  Import the header using  `#import "NSDate+TimeAgo.h"`
 3.  Call the `timeAgo` method in the following way:
 
