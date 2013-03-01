@@ -21,20 +21,6 @@ NSLog(@"Output is: \"%@\"", ago);
 2011-11-12 17:19:25.608 Proj[0:0] Output is: "41 years ago"
 </pre>
 
-<pre>
-NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:0]
-NSString *ago = [date timeAgoWithLimit:(10*24*3600)];
-NSLog(@"Output is: \"%@\"", ago);
-2011-11-12 17:19:25.608 Proj[0:0] Output is a date with time and FullStyle
-</pre>
-
-<pre>
-NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:0]
-NSString *ago = [date timeAgoWithLimit:(10*24*3600) dateFormat:NSDateFormatterFullStyle andTimeFormat:NSDateFormatterNoStyle];
-NSLog(@"Output is: \"%@\"", ago);
-2011-11-12 17:19:25.608 Proj[0:0] Output is a date with time and styles you specify
-</pre>
-
 ## Future Directions
 
 Would be nice to
