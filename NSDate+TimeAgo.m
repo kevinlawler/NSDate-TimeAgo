@@ -1,4 +1,19 @@
 #import "NSDate+TimeAgo.h"
+#import "Extensions.h"
+
+NSString* FWLocalizedStringFromTableInBundle(NSString* key)
+{
+//    TODO: Currently language is hardcoded because we not support it yet.
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    NSString *currentLanguage = @"es";//[languages objectAtIndex:0];
+//    TODO: Research way without using pathForResource with current language alway is used english localized.
+    NSString *path= [[NSBundle FWKitBundle] pathForResource:currentLanguage ofType:@"lproj"];
+    NSBundle* languageBundle = [NSBundle bundleWithPath:path];
+    
+    NSString *localizedString = [languageBundle localizedStringForKey:key value:nil table:@"NSDateTimeAgo"];
+    return localizedString;
+}
 
 @interface NSDate()
 -(NSString *)getLocaleFormatUnderscoresWithValue:(double)value;
@@ -8,7 +23,8 @@
 
 #ifndef NSDateTimeAgoLocalizedStrings
 #define NSDateTimeAgoLocalizedStrings(key) \
-    NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
+    FWLocalizedStringFromTableInBundle(key)
+//    NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
 #endif
 
 - (NSString *)timeAgo 
@@ -19,7 +35,7 @@
     
     int minutes;
     NSString *localeFormat;
-
+    
     if(deltaSeconds < 5)
     {
         return NSDateTimeAgoLocalizedStrings(@"Just now");
