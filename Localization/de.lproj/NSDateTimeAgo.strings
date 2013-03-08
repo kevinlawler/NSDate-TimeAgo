@@ -20,10 +20,10 @@
  "%d years ago" = "Vor %d Jahren";
  
  /* No comment provided by engineer. */
- "A minute ago" = "Vor %d Minute";
+ "A minute ago" = "Vor einer Minute";
  
  /* No comment provided by engineer. */
- "An hour ago" = "Vor %d Stunde";
+ "An hour ago" = "Vor einer Stunde";
  
 /* No comment provided by engineer. */
 "Just now" = "Gerade eben";
