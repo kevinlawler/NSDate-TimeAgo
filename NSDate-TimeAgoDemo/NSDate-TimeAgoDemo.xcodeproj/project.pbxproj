@@ -18,7 +18,6 @@
 		4AB0D3D71746870D00B4034A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D3D61746870D00B4034A /* Default-568h@2x.png */; };
 		4AB0D3DA1746870D00B4034A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0D3D91746870D00B4034A /* ViewController.m */; };
 		4AB0D3DD1746870D00B4034A /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D3DB1746870D00B4034A /* ViewController_iPhone.xib */; };
-		4AB0D3E01746870D00B4034A /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D3DE1746870D00B4034A /* ViewController_iPad.xib */; };
 		4AB0D3E81746870D00B4034A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB0D3E71746870D00B4034A /* SenTestingKit.framework */; };
 		4AB0D3E91746870D00B4034A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB0D3C01746870C00B4034A /* UIKit.framework */; };
 		4AB0D3EA1746870D00B4034A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB0D3C21746870D00B4034A /* Foundation.framework */; };
@@ -30,6 +29,10 @@
 		4AB0D4131746873F00B4034A /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0D40E1746873F00B4034A /* NSDate+TimeAgo.m */; };
 		4AB0D4141746873F00B4034A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D40F1746873F00B4034A /* README.md */; };
 		4AB0D4151746873F00B4034A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D40F1746873F00B4034A /* README.md */; };
+		4AB0D41917468B8F00B4034A /* ViewController2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0D41717468B8F00B4034A /* ViewController2ViewController.m */; };
+		4AB0D41A17468B8F00B4034A /* ViewController2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0D41717468B8F00B4034A /* ViewController2ViewController.m */; };
+		4AB0D41B17468B8F00B4034A /* ViewController2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D41817468B8F00B4034A /* ViewController2ViewController.xib */; };
+		4AB0D41C17468B8F00B4034A /* ViewController2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0D41817468B8F00B4034A /* ViewController2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,6 @@
 		4AB0D3D81746870D00B4034A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4AB0D3D91746870D00B4034A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4AB0D3DC1746870D00B4034A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		4AB0D3DF1746870D00B4034A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		4AB0D3E61746870D00B4034A /* NSDate-TimeAgoDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NSDate-TimeAgoDemoTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB0D3E71746870D00B4034A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		4AB0D3EF1746870D00B4034A /* NSDate-TimeAgoDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSDate-TimeAgoDemoTests-Info.plist"; sourceTree = "<group>"; };
@@ -81,6 +83,9 @@
 		4AB0D40D1746873F00B4034A /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+TimeAgo.h"; path = "../NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		4AB0D40E1746873F00B4034A /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TimeAgo.m"; path = "../NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		4AB0D40F1746873F00B4034A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4AB0D41617468B8F00B4034A /* ViewController2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2ViewController.h; sourceTree = "<group>"; };
+		4AB0D41717468B8F00B4034A /* ViewController2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2ViewController.m; sourceTree = "<group>"; };
+		4AB0D41817468B8F00B4034A /* ViewController2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController2ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +151,9 @@
 				4AB0D3D81746870D00B4034A /* ViewController.h */,
 				4AB0D3D91746870D00B4034A /* ViewController.m */,
 				4AB0D3DB1746870D00B4034A /* ViewController_iPhone.xib */,
-				4AB0D3DE1746870D00B4034A /* ViewController_iPad.xib */,
+				4AB0D41617468B8F00B4034A /* ViewController2ViewController.h */,
+				4AB0D41717468B8F00B4034A /* ViewController2ViewController.m */,
+				4AB0D41817468B8F00B4034A /* ViewController2ViewController.xib */,
 				4AB0D3C71746870D00B4034A /* Supporting Files */,
 			);
 			path = "NSDate-TimeAgoDemo";
@@ -292,9 +299,9 @@
 				4AB0D3D51746870D00B4034A /* Default@2x.png in Resources */,
 				4AB0D3D71746870D00B4034A /* Default-568h@2x.png in Resources */,
 				4AB0D3DD1746870D00B4034A /* ViewController_iPhone.xib in Resources */,
-				4AB0D3E01746870D00B4034A /* ViewController_iPad.xib in Resources */,
 				4AB0D4101746873F00B4034A /* NSDateTimeAgo.strings in Resources */,
 				4AB0D4141746873F00B4034A /* README.md in Resources */,
+				4AB0D41B17468B8F00B4034A /* ViewController2ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 				4AB0D3F21746870D00B4034A /* InfoPlist.strings in Resources */,
 				4AB0D4111746873F00B4034A /* NSDateTimeAgo.strings in Resources */,
 				4AB0D4151746873F00B4034A /* README.md in Resources */,
+				4AB0D41C17468B8F00B4034A /* ViewController2ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +343,7 @@
 				4AB0D3D11746870D00B4034A /* AppDelegate.m in Sources */,
 				4AB0D3DA1746870D00B4034A /* ViewController.m in Sources */,
 				4AB0D4121746873F00B4034A /* NSDate+TimeAgo.m in Sources */,
+				4AB0D41917468B8F00B4034A /* ViewController2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +353,7 @@
 			files = (
 				4AB0D3F51746870D00B4034A /* NSDate_TimeAgoDemoTests.m in Sources */,
 				4AB0D4131746873F00B4034A /* NSDate+TimeAgo.m in Sources */,
+				4AB0D41A17468B8F00B4034A /* ViewController2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,14 +382,6 @@
 				4AB0D3DC1746870D00B4034A /* en */,
 			);
 			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		4AB0D3DE1746870D00B4034A /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4AB0D3DF1746870D00B4034A /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		4AB0D3F01746870D00B4034A /* InfoPlist.strings */ = {

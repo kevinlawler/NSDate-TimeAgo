@@ -30,4 +30,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)nextPressed:(id)sender {
+    ViewController2ViewController *vc = [[ViewController2ViewController alloc] init];
+    vc.date = self.datePicker.date;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end
