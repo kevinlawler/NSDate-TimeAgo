@@ -13,79 +13,7 @@
 
 - (NSString *)timeAgo 
 {
-    NSDate *now = [NSDate date];
-    double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
-    double deltaMinutes = deltaSeconds / 60.0f;
-    
-    int minutes;
-    NSString *localeFormat;
-
-    if(deltaSeconds < 5)
-    {
-        return NSDateTimeAgoLocalizedStrings(@"Just now");
-    }
-    else if(deltaSeconds < 60)
-    {
-        localeFormat = [NSString stringWithFormat:@"%%d %@seconds ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaSeconds]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaSeconds];
-    }
-    else if(deltaSeconds < 120)
-    {
-        return NSDateTimeAgoLocalizedStrings(@"A minute ago");
-    }
-    else if (deltaMinutes < 60)
-    {
-        localeFormat = [NSString stringWithFormat:@"%%d %@minutes ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaMinutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaMinutes];
-    }
-    else if (deltaMinutes < 120)
-    {
-        return NSDateTimeAgoLocalizedStrings(@"An hour ago");
-    }
-    else if (deltaMinutes < (24 * 60))
-    {
-        minutes = (int)floor(deltaMinutes/60);
-        localeFormat = [NSString stringWithFormat:@"%%d %@hours ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
-    }
-    else if (deltaMinutes < (24 * 60 * 2))
-    {
-        return NSDateTimeAgoLocalizedStrings(@"Yesterday");
-    }
-    else if (deltaMinutes < (24 * 60 * 7))
-    {
-        minutes = (int)floor(deltaMinutes/(60 * 24));
-        localeFormat = [NSString stringWithFormat:@"%%d %@days ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
-    }
-    else if (deltaMinutes < (24 * 60 * 14))
-    {
-        return NSDateTimeAgoLocalizedStrings(@"Last week");
-    }
-    else if (deltaMinutes < (24 * 60 * 31))
-    {
-        minutes = (int)floor(deltaMinutes/(60 * 24 * 7));
-        localeFormat = [NSString stringWithFormat:@"%%d %@weeks ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
-    }
-    else if (deltaMinutes < (24 * 60 * 61))
-    {
-        return NSDateTimeAgoLocalizedStrings(@"Last month");
-    }
-    else if (deltaMinutes < (24 * 60 * 365.25))
-    {
-        minutes = (int)floor(deltaMinutes/(60 * 24 * 30));
-        localeFormat = [NSString stringWithFormat:@"%%d %@months ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
-    }
-    else if (deltaMinutes < (24 * 60 * 731))
-    {
-        return NSDateTimeAgoLocalizedStrings(@"Last year");
-    }
-
-    minutes = (int)floor(deltaMinutes/(60 * 24 * 365));
-    localeFormat = [NSString stringWithFormat:@"%%d %@years ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-    return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    return [self timeAgoWithGranularity:TimeAgoGranularitySeconds];
 }
 
 - (NSString *) timeAgoWithLimit:(NSTimeInterval)limit
@@ -101,6 +29,83 @@
     return [NSDateFormatter localizedStringFromDate:self
                                           dateStyle:dFormatter
                                           timeStyle:tFormatter];
+}
+
+- (NSString *) timeAgoWithGranularity:(TimeAgoGranularity)granularity
+{
+    NSDate *now = [NSDate date];
+    double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
+    double deltaMinutes = deltaSeconds / 60.0f;
+    
+    int minutes;
+    NSString *localeFormat;
+    
+    if(deltaSeconds < 5)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Just now");
+    }
+    else if(deltaSeconds < 60 && granularity == TimeAgoGranularitySeconds)
+    {
+        localeFormat = [NSString stringWithFormat:@"%%d %@seconds ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaSeconds]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaSeconds];
+    }
+    else if(deltaSeconds < 120 && granularity <= TimeAgoGranularityMinutes)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"A minute ago");
+    }
+    else if (deltaMinutes < 60 && granularity <= TimeAgoGranularityMinutes)
+    {
+        localeFormat = [NSString stringWithFormat:@"%%d %@minutes ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaMinutes]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaMinutes];
+    }
+    else if (deltaMinutes < 120 && granularity <= TimeAgoGranularityHours)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"An hour ago");
+    }
+    else if (deltaMinutes < (24 * 60) && granularity <= TimeAgoGranularityHours)
+    {
+        minutes = (int)floor(deltaMinutes/60);
+        localeFormat = [NSString stringWithFormat:@"%%d %@hours ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    }
+    else if (deltaMinutes < (24 * 60 * 2) && granularity <= TimeAgoGranularityDays)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Yesterday");
+    }
+    else if (deltaMinutes < (24 * 60 * 7) && granularity <= TimeAgoGranularityDays)
+    {
+        minutes = (int)floor(deltaMinutes/(60 * 24));
+        localeFormat = [NSString stringWithFormat:@"%%d %@days ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    }
+    else if (deltaMinutes < (24 * 60 * 14) && granularity <= TimeAgoGranularityWeeks)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Last week");
+    }
+    else if (deltaMinutes < (24 * 60 * 31))
+    {
+        minutes = (int)floor(deltaMinutes/(60 * 24 * 7) && granularity <= TimeAgoGranularityWeeks);
+        localeFormat = [NSString stringWithFormat:@"%%d %@weeks ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    }
+    else if (deltaMinutes < (24 * 60 * 61) && granularity <= TimeAgoGranularityMonths)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Last month");
+    }
+    else if (deltaMinutes < (24 * 60 * 365.25) && granularity <= TimeAgoGranularityMonths)
+    {
+        minutes = (int)floor(deltaMinutes/(60 * 24 * 30));
+        localeFormat = [NSString stringWithFormat:@"%%d %@months ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
+        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    }
+    else if (deltaMinutes < (24 * 60 * 731))
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Last year");
+    }
+    
+    minutes = (int)floor(deltaMinutes/(60 * 24 * 365));
+    localeFormat = [NSString stringWithFormat:@"%%d %@years ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
+    return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
 }
 
 // Helper functions
