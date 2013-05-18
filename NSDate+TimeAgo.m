@@ -8,26 +8,24 @@
 
 #ifndef NSDateTimeAgoLocalizedStrings
 #define NSDateTimeAgoLocalizedStrings(key) \
-    NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
+NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
 #endif
 
-- (NSString *)timeAgo 
+- (NSString *)timeAgo
 {
     NSDate *now = [NSDate date];
     double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
     double deltaMinutes = deltaSeconds / 60.0f;
     
     int minutes;
-    NSString *localeFormat;
-
+    
     if(deltaSeconds < 5)
     {
         return NSDateTimeAgoLocalizedStrings(@"Just now");
     }
     else if(deltaSeconds < 60)
     {
-        localeFormat = [NSString stringWithFormat:@"%%d %@seconds ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaSeconds]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaSeconds];
+        return [self stringFromFormat:@"%%d %@seconds ago" withValue:deltaSeconds];
     }
     else if(deltaSeconds < 120)
     {
@@ -35,8 +33,7 @@
     }
     else if (deltaMinutes < 60)
     {
-        localeFormat = [NSString stringWithFormat:@"%%d %@minutes ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaMinutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaMinutes];
+        return [self stringFromFormat:@"%%d %@minutes ago" withValue:deltaMinutes];
     }
     else if (deltaMinutes < 120)
     {
@@ -45,8 +42,7 @@
     else if (deltaMinutes < (24 * 60))
     {
         minutes = (int)floor(deltaMinutes/60);
-        localeFormat = [NSString stringWithFormat:@"%%d %@hours ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [self stringFromFormat:@"%%d %@hours ago" withValue:minutes];
     }
     else if (deltaMinutes < (24 * 60 * 2))
     {
@@ -55,8 +51,7 @@
     else if (deltaMinutes < (24 * 60 * 7))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24));
-        localeFormat = [NSString stringWithFormat:@"%%d %@days ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [self stringFromFormat:@"%%d %@days ago" withValue:minutes];
     }
     else if (deltaMinutes < (24 * 60 * 14))
     {
@@ -65,8 +60,7 @@
     else if (deltaMinutes < (24 * 60 * 31))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24 * 7));
-        localeFormat = [NSString stringWithFormat:@"%%d %@weeks ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [self stringFromFormat:@"%%d %@weeks ago" withValue:minutes];
     }
     else if (deltaMinutes < (24 * 60 * 61))
     {
@@ -75,17 +69,200 @@
     else if (deltaMinutes < (24 * 60 * 365.25))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24 * 30));
-        localeFormat = [NSString stringWithFormat:@"%%d %@months ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [self stringFromFormat:@"%%d %@months ago" withValue:minutes];
     }
     else if (deltaMinutes < (24 * 60 * 731))
     {
         return NSDateTimeAgoLocalizedStrings(@"Last year");
     }
-
+    
     minutes = (int)floor(deltaMinutes/(60 * 24 * 365));
-    localeFormat = [NSString stringWithFormat:@"%%d %@years ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-    return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    return [self stringFromFormat:@"%%d %@years ago" withValue:minutes];
+}
+
+// Similar to timeAgo, but only returns "
+- (NSString *)dateTimeAgo
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate * now = [NSDate date];
+    NSDateComponents *components = [calendar components:
+                                    NSYearCalendarUnit|
+                                    NSMonthCalendarUnit|
+                                    NSWeekCalendarUnit|
+                                    NSDayCalendarUnit|
+                                    NSHourCalendarUnit|
+                                    NSMinuteCalendarUnit|
+                                    NSSecondCalendarUnit
+                                               fromDate:self
+                                                 toDate:now
+                                                options:0];
+    
+    if (components.year >= 1)
+    {
+        if (components.year == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"1 year ago");
+        }
+        return [self stringFromFormat:@"%%d %@years ago" withValue:components.year];
+    }
+    else if (components.month >= 1)
+    {
+        if (components.month == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"1 month ago");
+        }
+        return [self stringFromFormat:@"%%d %@months ago" withValue:components.month];
+    }
+    else if (components.week >= 1)
+    {
+        if (components.week == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"1 week ago");
+        }
+        return [self stringFromFormat:@"%%d %@weeks ago" withValue:components.week];
+    }
+    else if (components.day >= 1)    // up to 6 days ago
+    {
+        if (components.day == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"1 day ago");
+        }
+        return [self stringFromFormat:@"%%d %@days ago" withValue:components.day];
+    }
+    else if (components.hour >= 1)   // up to 23 hours ago
+    {
+        if (components.hour == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"An hour ago");
+        }
+        return [self stringFromFormat:@"%%d %@hours ago" withValue:components.hour];
+    }
+    else if (components.minute >= 1) // up to 59 minutes ago
+    {
+        if (components.minute == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"A minute ago");
+        }
+        return [self stringFromFormat:@"%%d %@minutes ago" withValue:components.minute];
+    }
+    else if (components.second < 5)
+    {
+        return NSDateTimeAgoLocalizedStrings(@"Just now");
+    }
+    
+    // between 5 and 59 seconds ago
+    return [self stringFromFormat:@"%%d %@seconds ago" withValue:components.second];
+}
+
+
+
+- (NSString *)dateTimeUntilNow
+{
+    NSDate * now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents *components = [calendar components:NSHourCalendarUnit
+                                               fromDate:self
+                                                 toDate:now
+                                                options:0];
+    
+    if (components.hour >= 6) // if more than 6 hours ago, change precision
+    {
+        NSInteger startDay = [calendar ordinalityOfUnit:NSDayCalendarUnit
+                                                 inUnit:NSEraCalendarUnit
+                                                forDate:self];
+        NSInteger endDay = [calendar ordinalityOfUnit:NSDayCalendarUnit
+                                               inUnit:NSEraCalendarUnit
+                                              forDate:now];
+        
+        NSInteger diffDays = endDay - startDay;
+        if (diffDays == 0) // today!
+        {
+            NSDateComponents * startHourComponent = [calendar components:NSHourCalendarUnit fromDate:self];
+            NSDateComponents * endHourComponent = [calendar components:NSHourCalendarUnit fromDate:self];
+            if (startHourComponent.hour < 12 &&
+                endHourComponent.hour > 12)
+            {
+                return NSDateTimeAgoLocalizedStrings(@"This morning");
+            }
+            else if (startHourComponent.hour >= 12 &&
+                     startHourComponent.hour < 18 &&
+                     endHourComponent.hour >= 18)
+            {
+                return NSDateTimeAgoLocalizedStrings(@"This afternoon");
+            }
+            return NSDateTimeAgoLocalizedStrings(@"Today");
+        }
+        else if (diffDays == 1)
+        {
+            return NSDateTimeAgoLocalizedStrings(@"Yesterday");
+        }
+        else
+        {
+            NSInteger startWeek = [calendar ordinalityOfUnit:NSWeekCalendarUnit
+                                                      inUnit:NSEraCalendarUnit
+                                                     forDate:self];
+            NSInteger endWeek = [calendar ordinalityOfUnit:NSWeekCalendarUnit
+                                                    inUnit:NSEraCalendarUnit
+                                                   forDate:now];
+            NSInteger diffWeeks = endWeek - startWeek;
+            if (diffWeeks == 0)
+            {
+                return NSDateTimeAgoLocalizedStrings(@"This week");
+            }
+            else if (diffWeeks == 1)
+            {
+                return NSDateTimeAgoLocalizedStrings(@"Last week");
+            }
+            else
+            {
+                NSInteger startMonth = [calendar ordinalityOfUnit:NSMonthCalendarUnit
+                                                           inUnit:NSEraCalendarUnit
+                                                          forDate:self];
+                NSInteger endMonth = [calendar ordinalityOfUnit:NSMonthCalendarUnit
+                                                         inUnit:NSEraCalendarUnit
+                                                        forDate:now];
+                NSInteger diffMonths = endMonth - startMonth;
+                if (diffMonths == 0)
+                {
+                    return NSDateTimeAgoLocalizedStrings(@"This month");
+                }
+                else if (diffMonths == 1)
+                {
+                    return NSDateTimeAgoLocalizedStrings(@"Last month");
+                }
+                else
+                {
+                    NSInteger startYear = [calendar ordinalityOfUnit:NSYearCalendarUnit
+                                                              inUnit:NSEraCalendarUnit
+                                                             forDate:self];
+                    NSInteger endYear = [calendar ordinalityOfUnit:NSYearCalendarUnit
+                                                            inUnit:NSEraCalendarUnit
+                                                           forDate:now];
+                    NSInteger diffYears = endYear - startYear;
+                    if (diffYears == 0)
+                    {
+                        return NSDateTimeAgoLocalizedStrings(@"This year");
+                    }
+                    else if (diffYears == 1)
+                    {
+                        return NSDateTimeAgoLocalizedStrings(@"Last year");
+                    }
+                }
+            }
+        }
+    }
+    
+    // anything else uses "time ago" precision
+    return [self dateTimeAgo];
+}
+
+
+
+- (NSString *) stringFromFormat:(NSString *)format withValue:(NSInteger)value
+{
+    NSString * localeFormat = [NSString stringWithFormat:format, [self getLocaleFormatUnderscoresWithValue:value]];
+    return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), value];
 }
 
 - (NSString *) timeAgoWithLimit:(NSTimeInterval)limit
@@ -113,14 +290,14 @@
  - Method  : getLocaleFormatUnderscoresWithValue
  - Param   : value (Double value of seconds or minutes)
  - Return  : @"" or the set of underscores ("_")
-             in order to define exact translation format for specific translation rules.
-             (Ex: "%d _seconds ago" for "%d секунды назад", "%d __seconds ago" for "%d секунда назад",
-             and default format without underscore %d seconds ago" for "%d секунд назад")
-   Updated : 12/12/2012
+ in order to define exact translation format for specific translation rules.
+ (Ex: "%d _seconds ago" for "%d секунды назад", "%d __seconds ago" for "%d секунда назад",
+ and default format without underscore %d seconds ago" for "%d секунд назад")
+ Updated : 12/12/2012
  
-   Note    : This method must be used for all languages that have specific translation rules. 
-             Using method argument "value" you must define all possible conditions language have for translation 
-             and return set of underscores ("_") as it is an ID for locale format. No underscore ("") means default locale format;
+ Note    : This method must be used for all languages that have specific translation rules.
+ Using method argument "value" you must define all possible conditions language have for translation
+ and return set of underscores ("_") as it is an ID for locale format. No underscore ("") means default locale format;
  */
 -(NSString *)getLocaleFormatUnderscoresWithValue:(double)value
 {
