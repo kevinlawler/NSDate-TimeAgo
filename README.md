@@ -21,6 +21,13 @@ NSLog(@"Output is: \"%@\"", ago);
 2011-11-12 17:19:25.608 Proj[0:0] Output is: "41 years ago"
 </pre>
 
+2 other methods are available:
+
+* dateTimeAgo: returns times with only strings of the type: "*{value}* *{unit}* ago"
+* dateTimeUntilNow: returns only "yesterday" / "this morning" / "last week" / "this month" -- less precise than dateTimeAgo but more natural
+
+Those three methods can be interchanged as they have the same signature.
+
 ## Future Directions
 
 Would be nice to
@@ -28,7 +35,7 @@ Would be nice to
 1.  add customization options (e.g., should it report seconds or just "a minute ago") 
 2.  add string customization
 3.  have more localizations
-4.  add a separate method that understands "Last Friday", etc.
+4.  make dateTimeUntilNow more precise: instead of "Last week" use "Last Friday", "Last Monday" etc.
 5.  other
 
 ## License
