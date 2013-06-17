@@ -20,6 +20,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - fi (Finnish)
 - ja (Japanese)
 - vi (Vietnamese)
+- da (Danish)
 
 If you know a language not listed here, please consider submitting a translation.
 
@@ -88,3 +89,5 @@ Tonydyb added `ja` Japanese strings.
 Vinhnx added `vi` Vietnamese strings. http://vinhnx.github.io/
 
 Ronail added `zh_Hant` Traditional Chinese strings. https://github.com/ronail
+
+spookd added `da` Danish strings. https://github.com/spookd
