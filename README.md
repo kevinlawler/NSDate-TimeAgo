@@ -88,3 +88,5 @@ Tonydyb added `ja` Japanese strings.
 Vinhnx added `vi` Vietnamese strings. http://vinhnx.github.io/
 
 Ronail added `zh_Hant` Traditional Chinese strings. https://github.com/ronail
+
+spookd added `da` Danish strings. https://github.com/spookd
