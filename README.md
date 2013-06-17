@@ -9,6 +9,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - en (English)
 - es (Spanish)
 - zh_Hans (Chinese Simplified)
+- zh_Hant (Chinese Traditional)
 - pt_BR (Brazilian Portuguese)
 - fr (French)
 - it (Italian)
@@ -82,3 +83,7 @@ Tieme van Veen added `nl` Dutch strings. http://www.tiemevanveen.nl
 Anajavi added `fi` Finnish strings. https://github.com/anajavi
 
 Tonydyb added `ja` Japanese strings.
+
+Vinhnx added `vi` Vietnamese strings. http://vinhnx.github.io/
+
+Ronail added `zh_Hant` Traditional Chinese strings. https://github.com/ronail
