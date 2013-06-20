@@ -8,7 +8,7 @@
 
 #ifndef NSDateTimeAgoLocalizedStrings
 #define NSDateTimeAgoLocalizedStrings(key) \
-NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
+NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPath:@"NSDateTimeAgo.bundle"], nil)
 #endif
 
 - (NSString *)timeAgo

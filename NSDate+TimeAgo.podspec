@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.author          = { 'Kevin Lawler' => 'kevin.lawler@gmail.com' }
   s.source          = { :git => 'https://github.com/kevinlawler/NSDate-TimeAgo.git', :tag => "v#{s.version.to_s}" }
   s.source_files    =  '*.{h,m}'
-  s.resources       = 'Localization/*'
+  s.resources       = 'NSDateTimeAgo.bundle'
   s.requires_arc    = true
 end
