@@ -1,33 +1,13 @@
 #import "NSDate+TimeAgo.h"
 #import "Extensions.h"
 
-NSString* FWLocalizedStringFromTableInBundle(NSString* key)
-{
-//    TODO: Currently language is hardcoded because we not support it yet.
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
-    NSString *currentLanguage = @"es";//[languages objectAtIndex:0];
-//    TODO: Research way without using pathForResource with current language alway is used english localized.
-    NSString *path= [[NSBundle FWKitBundle] pathForResource:currentLanguage ofType:@"lproj"];
-    NSBundle* languageBundle = [NSBundle bundleWithPath:path];
-    
-    NSString *localizedString = [languageBundle localizedStringForKey:key value:nil table:@"NSDateTimeAgo"];
-    return localizedString;
-}
-
 @interface NSDate()
 -(NSString *)getLocaleFormatUnderscoresWithValue:(double)value;
 @end
 
 @implementation NSDate (TimeAgo)
 
-#ifndef NSDateTimeAgoLocalizedStrings
-#define NSDateTimeAgoLocalizedStrings(key) \
-    FWLocalizedStringFromTableInBundle(key)
-//    NSLocalizedStringFromTable(key, @"NSDateTimeAgo", nil)
-#endif
-
-- (NSString *)timeAgo 
+- (NSString *)timeAgo
 {
     NSDate *now = [NSDate date];
     double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
@@ -38,70 +18,70 @@ NSString* FWLocalizedStringFromTableInBundle(NSString* key)
     
     if(deltaSeconds < 5)
     {
-        return NSDateTimeAgoLocalizedStrings(@"Just now");
+        return NSLocalizedStringFromTableInBundle(@"Just now", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if(deltaSeconds < 60)
     {
         localeFormat = [NSString stringWithFormat:@"%%d %@seconds ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaSeconds]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaSeconds];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), (int)deltaSeconds];
     }
     else if(deltaSeconds < 120)
     {
-        return NSDateTimeAgoLocalizedStrings(@"A minute ago");
+        return NSLocalizedStringFromTableInBundle(@"A minute ago", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if (deltaMinutes < 60)
     {
         localeFormat = [NSString stringWithFormat:@"%%d %@minutes ago", [self getLocaleFormatUnderscoresWithValue:(int)deltaMinutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), (int)deltaMinutes];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), (int)deltaMinutes];
     }
     else if (deltaMinutes < 120)
     {
-        return NSDateTimeAgoLocalizedStrings(@"An hour ago");
+        return NSLocalizedStringFromTableInBundle(@"An hour ago", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if (deltaMinutes < (24 * 60))
     {
         minutes = (int)floor(deltaMinutes/60);
         localeFormat = [NSString stringWithFormat:@"%%d %@hours ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), minutes];
     }
     else if (deltaMinutes < (24 * 60 * 2))
     {
-        return NSDateTimeAgoLocalizedStrings(@"Yesterday");
+        return NSLocalizedStringFromTableInBundle(@"Yesterday", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if (deltaMinutes < (24 * 60 * 7))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24));
         localeFormat = [NSString stringWithFormat:@"%%d %@days ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), minutes];
     }
     else if (deltaMinutes < (24 * 60 * 14))
     {
-        return NSDateTimeAgoLocalizedStrings(@"Last week");
+        return NSLocalizedStringFromTableInBundle(@"Last week", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if (deltaMinutes < (24 * 60 * 31))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24 * 7));
         localeFormat = [NSString stringWithFormat:@"%%d %@weeks ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), minutes];
     }
     else if (deltaMinutes < (24 * 60 * 61))
     {
-        return NSDateTimeAgoLocalizedStrings(@"Last month");
+        return NSLocalizedStringFromTableInBundle(@"Last month", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
     else if (deltaMinutes < (24 * 60 * 365.25))
     {
         minutes = (int)floor(deltaMinutes/(60 * 24 * 30));
         localeFormat = [NSString stringWithFormat:@"%%d %@months ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-        return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+        return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), minutes];
     }
     else if (deltaMinutes < (24 * 60 * 731))
     {
-        return NSDateTimeAgoLocalizedStrings(@"Last year");
+        return NSLocalizedStringFromTableInBundle(@"Last year", @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @"");
     }
 
     minutes = (int)floor(deltaMinutes/(60 * 24 * 365));
     localeFormat = [NSString stringWithFormat:@"%%d %@years ago", [self getLocaleFormatUnderscoresWithValue:minutes]];
-    return [NSString stringWithFormat:NSDateTimeAgoLocalizedStrings(localeFormat), minutes];
+    return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(localeFormat, @"NSDateTimeAgo", [NSBundle FWKitLocalizedBundle], @""), minutes];
 }
 
 - (NSString *) timeAgoWithLimit:(NSTimeInterval)limit
