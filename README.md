@@ -28,7 +28,7 @@ If you know a language not listed here, please consider submitting a translation
 
 ## Use
 
-1.  `Add` the files to your project - manually or via Cocoapods (pod 'NSDate+TimeAgo')
+1.  `Add` the files to your project - manually or via Cocoapods (`pod 'NSDate+TimeAgo'`)
 2.  Import the header using  `#import "NSDate+TimeAgo.h"`
 3.  Call the `timeAgo` method in the following way:
 
@@ -96,4 +96,4 @@ SorinAntohi added `ro` Romanian strings. https://github.com/SorinAntohi
 
 spookd added `da` Danish strings. https://github.com/spookd
 
-barrettj added 'cs' Czech strings.  https://github.com/barrettj
+barrettj added `cs` Czech strings.  https://github.com/barrettj
