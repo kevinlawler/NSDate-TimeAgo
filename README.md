@@ -22,6 +22,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - vi (Vietnamese)
 - ro (Romanian)
 - da (Danish)
+- cs (Czech)
 
 If you know a language not listed here, please consider submitting a translation.
 
