@@ -280,6 +280,14 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
                                           timeStyle:tFormatter];
 }
 
+- (NSString *) timeAgoWithLimit:(NSTimeInterval)limit dateFormatter:(NSDateFormatter)formatter
+{
+    if (fabs([self timeIntervalSinceDate:[NSDate date]]) <= limit)
+        return [self timeAgo];
+
+    return [formatter stringFromDate:self];
+}
+
 // Helper functions
 
 #pragma clang diagnostic push
