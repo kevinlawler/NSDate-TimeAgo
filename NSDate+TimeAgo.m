@@ -313,14 +313,12 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
     
     // Russian (ru)
     if([localeCode isEqual:@"ru"]) {
-        NSString *valueStr = [NSString stringWithFormat:@"%.f", value];
-        int l = valueStr.length;
-        int XY = [[valueStr substringWithRange:NSMakeRange(l - 2, l)] intValue];
+        int XY = (int)floor(value) % 100;
         int Y = (int)floor(value) % 10;
         
-        if(Y == 0 || Y > 4 || XY == 11) return @"";
-        if(Y != 1 && Y < 5)             return @"_";
-        if(Y == 1)                      return @"__";
+        if(Y == 0 || Y > 4 || (XY > 10 && XY < 15)) return @"";
+        if(Y > 1 && Y < 5 && (XY < 10 || XY > 20))  return @"_";
+        if(Y == 1 && XY != 11)                      return @"__";
     }
     
     // Add more languages here, which are have specific translation rules...
