@@ -102,4 +102,4 @@ barrettj added `cs` Czech strings.  https://github.com/barrettj
 
 shmidt added `nb` Norwegian strings. https://github.com/shmidt
 
-rudensm added `lv` Latvian strings. https://github.com/rudensm
+Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
