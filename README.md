@@ -98,8 +98,8 @@ SorinAntohi added `ro` Romanian strings. https://github.com/SorinAntohi
 
 spookd added `da` Danish strings. https://github.com/spookd
 
-barrettj added `cs` Czech strings.  https://github.com/barrettj
+Barrett Jacobsen added `cs` Czech strings.  https://github.com/barrettj
 
-shmidt added `nb` Norwegian strings. https://github.com/shmidt
+Dmitry Shmidt added `nb` Norwegian strings. https://github.com/shmidt
 
 Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
