@@ -27,7 +27,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - lv (Latvian)
 - tr (Turkish)
 
-If you know a language not listed here, please consider submitting a translation.
+If you know a language not listed here, please consider submitting a translation. [Localization codes by country/language/locale](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
 ## Use
 
