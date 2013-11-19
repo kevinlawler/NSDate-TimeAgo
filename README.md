@@ -25,6 +25,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - cs (Czech)
 - nb (Norwegian)
 - lv (Latvian)
+- tr (Turkish)
 
 If you know a language not listed here, please consider submitting a translation.
 
@@ -103,3 +104,5 @@ Barrett Jacobsen added `cs` Czech strings.  https://github.com/barrettj
 Dmitry Shmidt added `nb` Norwegian strings. https://github.com/shmidt
 
 Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
+
+Osman Saral added `tr` Turkish strings. https://github.com/osrl
