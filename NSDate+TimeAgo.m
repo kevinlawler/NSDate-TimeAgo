@@ -90,11 +90,9 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
 - (NSString *)dateTimeAgoReversed:(BOOL)reversed
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate * now = [NSDate date];
-    NSDateComponents *components;
-
-    if (reversed) {
-        components = [calendar components:
+    NSDate * fromDate = reversed ? [NSDate date] : self;
+    NSDate *toDate = reversed ? self :[NSDate date];
+    NSDateComponents *components = [calendar components:
                                         NSYearCalendarUnit|
                                         NSMonthCalendarUnit|
                                         NSWeekCalendarUnit|
@@ -102,22 +100,9 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
                                         NSHourCalendarUnit|
                                         NSMinuteCalendarUnit|
                                         NSSecondCalendarUnit
-                                                   fromDate:now
-                                                     toDate:self
+                                                   fromDate:fromDate
+                                                     toDate:toDate
                                                     options:0];
-    } else {
-       components = [calendar components:
-                                       NSYearCalendarUnit|
-                                       NSMonthCalendarUnit|
-                                       NSWeekCalendarUnit|
-                                       NSDayCalendarUnit|
-                                       NSHourCalendarUnit|
-                                       NSMinuteCalendarUnit|
-                                       NSSecondCalendarUnit
-                                                  fromDate:self
-                                                    toDate:now
-                                                   options:0];
-    }
 
     if (components.year >= 1)
     {
