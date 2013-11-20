@@ -14,12 +14,12 @@
 
 
 // shows how many days are left in the future.
-// ex: 3 days left
-- (NSString *)daysLeft;
+// ex: @"3 days left", @"5 seconds left", @"20 years left"
+- (NSString *)timeLeft;
 
 //if you would like a custom ending to the days left method
-// ex: 3 days remaining, pass in @"days remaining"
-- (NSString *)daysLeftWithEnding:(NSString *)ending;
+// ex: 3 days remaining, pass in @"remaining"
+- (NSString *)timeLeftWithEnding:(NSString *)ending;
 
 
 @end

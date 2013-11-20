@@ -80,23 +80,45 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
     return [self stringFromFormat:@"%%d %@years ago" withValue:minutes];
 }
 
-// Similar to timeAgo, but only returns "
 - (NSString *)dateTimeAgo
+{
+   return [self dateTimeAgoReversed:NO];
+}
+
+
+// Similar to timeAgo, but only returns "
+- (NSString *)dateTimeAgoReversed:(BOOL)reversed
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDate * now = [NSDate date];
-    NSDateComponents *components = [calendar components:
-                                    NSYearCalendarUnit|
-                                    NSMonthCalendarUnit|
-                                    NSWeekCalendarUnit|
-                                    NSDayCalendarUnit|
-                                    NSHourCalendarUnit|
-                                    NSMinuteCalendarUnit|
-                                    NSSecondCalendarUnit
-                                               fromDate:self
-                                                 toDate:now
-                                                options:0];
-    
+    NSDateComponents *components;
+
+    if (reversed) {
+        components = [calendar components:
+                                        NSYearCalendarUnit|
+                                        NSMonthCalendarUnit|
+                                        NSWeekCalendarUnit|
+                                        NSDayCalendarUnit|
+                                        NSHourCalendarUnit|
+                                        NSMinuteCalendarUnit|
+                                        NSSecondCalendarUnit
+                                                   fromDate:now
+                                                     toDate:self
+                                                    options:0];
+    } else {
+       components = [calendar components:
+                                       NSYearCalendarUnit|
+                                       NSMonthCalendarUnit|
+                                       NSWeekCalendarUnit|
+                                       NSDayCalendarUnit|
+                                       NSHourCalendarUnit|
+                                       NSMinuteCalendarUnit|
+                                       NSSecondCalendarUnit
+                                                  fromDate:self
+                                                    toDate:now
+                                                   options:0];
+    }
+
     if (components.year >= 1)
     {
         if (components.year == 1)
@@ -155,17 +177,15 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
 }
 
 
-
 - (NSString *)dateTimeUntilNow
 {
     NSDate * now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
     NSDateComponents *components = [calendar components:NSHourCalendarUnit
                                                fromDate:self
                                                  toDate:now
                                                 options:0];
-    
+
     if (components.hour >= 6) // if more than 6 hours ago, change precision
     {
         NSInteger startDay = [calendar ordinalityOfUnit:NSDayCalendarUnit
@@ -288,20 +308,13 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)daysLeft {
-    return [self daysLeftWithEnding:@"days left"];
+- (NSString *)timeLeft {
+    return [self timeLeftWithEnding:@"left"];
 }
 
-- (NSString *)daysLeftWithEnding:(NSString *)ending {
-    NSDate *now = [NSDate date];
-    double deltaSeconds = [self timeIntervalSinceDate:now];
-    double deltaDays = deltaSeconds / 86400.0f;
-
-    if (deltaDays < 0) {
-        deltaDays = 0;
-    }
-
-    return [NSString stringWithFormat:@"%i %@", (int)deltaDays, ending];
+- (NSString *)timeLeftWithEnding:(NSString *)ending {
+    NSString *dateTimeAgo = [self dateTimeAgoReversed:YES];
+    return [dateTimeAgo stringByReplacingOccurrencesOfString:@"ago" withString:ending];
 }
 
 // Helper functions
