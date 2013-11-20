@@ -42,10 +42,11 @@ NSLog(@"Output is: \"%@\"", ago);
 2011-11-12 17:19:25.608 Proj[0:0] Output is: "41 years ago"
 </pre>
 
-2 other methods are available:
+3 other methods are available:
 
 * `dateTimeAgo`: returns times with only strings of the type: "*{value}* *{unit}* ago"
 * `dateTimeUntilNow`: returns only "yesterday" / "this morning" / "last week" / "this month" -- less precise than `dateTimeAgo` but more natural
+* `daysLeft`: returns a string stating how many days are remaining until the date occurs. ex: "3 days left". There is also a method that will allow a custom ending such as "days remaining"
 
 Those three methods can be interchanged as they have the same signature.
 
@@ -106,3 +107,5 @@ Dmitry Shmidt added `nb` Norwegian strings. https://github.com/shmidt
 Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
 
 Osman Saral added `tr` Turkish strings. https://github.com/osrl
+
+Matthew Knippen added `days left` method. https://github.com/mknippen
