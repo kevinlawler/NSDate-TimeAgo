@@ -288,6 +288,22 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
     return [formatter stringFromDate:self];
 }
 
+- (NSString *)daysLeft {
+    return [self daysLeftWithEnding:@"days left"];
+}
+
+- (NSString *)daysLeftWithEnding:(NSString *)ending {
+    NSDate *now = [NSDate date];
+    double deltaSeconds = [self timeIntervalSinceDate:now];
+    double deltaDays = deltaSeconds / 86400.0f;
+
+    if (deltaDays < 0) {
+        deltaDays = 0;
+    }
+
+    return [NSString stringWithFormat:@"%i %@", (int)deltaDays, ending];
+}
+
 // Helper functions
 
 #pragma clang diagnostic push
