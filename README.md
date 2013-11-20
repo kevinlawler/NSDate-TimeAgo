@@ -26,6 +26,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - nb (Norwegian)
 - lv (Latvian)
 - tr (Turkish)
+- ko (Korean)
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
@@ -106,3 +107,5 @@ Dmitry Shmidt added `nb` Norwegian strings. https://github.com/shmidt
 Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
 
 Osman Saral added `tr` Turkish strings. https://github.com/osrl
+
+analogstyle added `ko` Korean strings. http://almacreative.net/
