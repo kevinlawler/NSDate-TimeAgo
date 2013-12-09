@@ -10,7 +10,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - es (Spanish)
 - zh_Hans (Chinese Simplified)
 - zh_Hant (Chinese Traditional)
-- pt_BR (Brazilian Portuguese)
+- pt (Portuguese)
 - fr (French)
 - it (Italian)
 - ru (Russian)
@@ -69,6 +69,8 @@ http://wikipedia.org/wiki/ISC_license
 ## Credits
 
 Originally based on code Christopher Pickslay posted to Forrst. Used with permission. http://twitter.com/cpickslay 
+
+Flavio Caetano fixed `pt` Portuguese strings. http://flaviocaetano.com
 
 Ramon Torres began support for internationalization/localization. Added `es` strings. http://rtorres.me/
 
