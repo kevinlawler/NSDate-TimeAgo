@@ -112,3 +112,6 @@ Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
 Osman Saral added `tr` Turkish strings. https://github.com/osrl
 
 analogstyle added `ko` Korean strings. http://almacreative.net/
+
+kolarski added `bg` Bulgarian strings. http://github.com/kolarski
+
