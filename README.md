@@ -28,6 +28,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - tr (Turkish)
 - ko (Korean)
 - bg (Bulgarian)
+- he (Hebrew)
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
