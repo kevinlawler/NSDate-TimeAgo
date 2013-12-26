@@ -116,3 +116,5 @@ analogstyle added `ko` Korean strings. http://almacreative.net/
 
 kolarski added `bg` Bulgarian strings. http://github.com/kolarski
 
+Vladimir Kofman added `he` Hebrew strings. https://github.com/vladimirkofman
+
