@@ -39,7 +39,7 @@ If you know a language not listed here, please consider submitting a translation
 3.  Call the `timeAgo` method in the following way:
 
 <pre>
-NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:0]
+NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:0];
 NSString *ago = [date timeAgo];
 NSLog(@"Output is: \"%@\"", ago);
 2011-11-12 17:19:25.608 Proj[0:0] Output is: "41 years ago"
