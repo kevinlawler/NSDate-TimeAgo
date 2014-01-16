@@ -11,6 +11,50 @@
 NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NSDateTimeAgo.bundle"]], nil)
 #endif
 
+// shows 1 or two letter abbreviation for units.
+// does not include 'ago' text ... just {value}{unit-abbreviation}
+// does not include interim summary options such as 'Just now'
+- (NSString *)timeAgoSimple
+{
+    NSDate *now = [NSDate date];
+    double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
+    double deltaMinutes = deltaSeconds / 60.0f;
+    
+    int value;
+    
+    if(deltaSeconds < 60)
+    {
+        return [self stringFromFormat:@"%%d%@s" withValue:deltaSeconds];
+    }
+    else if (deltaMinutes < 60)
+    {
+        return [self stringFromFormat:@"%%d%@m" withValue:deltaMinutes];
+    }
+    else if (deltaMinutes < (24 * 60))
+    {
+        value = (int)floor(deltaMinutes/60);
+        return [self stringFromFormat:@"%%d%@h" withValue:value];
+    }
+    else if (deltaMinutes < (24 * 60 * 7))
+    {
+        value = (int)floor(deltaMinutes/(60 * 24));
+        return [self stringFromFormat:@"%%d%@d" withValue:value];
+    }
+    else if (deltaMinutes < (24 * 60 * 31))
+    {
+        value = (int)floor(deltaMinutes/(60 * 24 * 7));
+        return [self stringFromFormat:@"%%d%@w" withValue:value];
+    }
+    else if (deltaMinutes < (24 * 60 * 365.25))
+    {
+        value = (int)floor(deltaMinutes/(60 * 24 * 30));
+        return [self stringFromFormat:@"%%d%@mo" withValue:value];
+    }
+    
+    value = (int)floor(deltaMinutes/(60 * 24 * 365));
+    return [self stringFromFormat:@"%%d%@yr" withValue:value];
+}
+
 - (NSString *)timeAgo
 {
     NSDate *now = [NSDate date];
