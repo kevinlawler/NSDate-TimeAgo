@@ -29,6 +29,11 @@ This functionality has variously been referred to as a "time ago", "time since",
 - ko (Korean)
 - bg (Bulgarian)
 - he (Hebrew)
+- ar (Arabic)
+- gre (Greek)
+- pl (Polish)
+- sv (Swedish)
+- th (Thai)
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
@@ -117,4 +122,6 @@ analogstyle added `ko` Korean strings. http://almacreative.net/
 kolarski added `bg` Bulgarian strings. http://github.com/kolarski
 
 Vladimir Kofman added `he` Hebrew strings. https://github.com/vladimirkofman
+
+Viraf Sarkari added `ar` Arabic, `gre` Greek, `pl` Polish, `sv` Swedish, and `th` Thai strings. https://github.com/viraf
 
