@@ -77,8 +77,6 @@ http://wikipedia.org/wiki/ISC_license
 
 Originally based on code Christopher Pickslay posted to Forrst. Used with permission. http://twitter.com/cpickslay 
 
-Flavio Caetano fixed `pt` Portuguese strings. http://flaviocaetano.com
-
 Ramon Torres began support for internationalization/localization. Added `es` strings. http://rtorres.me/
 
 Dennis Zhuang added `zh_Hans` Chinese Simplified strings. http://fnil.net/
@@ -118,6 +116,8 @@ Martins Rudens added `lv` Latvian strings. https://github.com/rudensm
 Osman Saral added `tr` Turkish strings. https://github.com/osrl
 
 analogstyle added `ko` Korean strings. http://almacreative.net/
+
+Flavio Caetano fixed `pt` Portuguese strings. http://flaviocaetano.com
 
 kolarski added `bg` Bulgarian strings. http://github.com/kolarski
 
