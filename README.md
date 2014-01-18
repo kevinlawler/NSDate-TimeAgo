@@ -37,7 +37,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
-This project is user driven (by people like you) and loosely moderated. Pull requests close faster than issues (merged or rejected).
+This project is user driven (by people like you). Pull requests close faster than issues (merged or rejected).
 
 ## Use
 
