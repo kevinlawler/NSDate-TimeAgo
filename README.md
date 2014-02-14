@@ -128,3 +128,5 @@ Vladimir Kofman added `he` Hebrew strings. https://github.com/vladimirkofman
 
 Viraf Sarkari added `ar` Arabic, `gre` Greek, `pl` Polish, `sv` Swedish, and `th` Thai strings. https://github.com/viraf
 
+Vasyl Skrypii added `uk` Ukranian strings. https://github.com/medlay 
+
