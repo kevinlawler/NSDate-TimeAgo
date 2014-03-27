@@ -20,10 +20,10 @@
 "%d years ago" = "%d 年前";
 
 /* No comment provided by engineer. */
-"A minute ago" = "一分钟前";
+"A minute ago" = "1分钟前";
 
 /* No comment provided by engineer. */
-"An hour ago" = "一小时前";
+"An hour ago" = "1小时前";
 
 /* No comment provided by engineer. */
 "Just now" = "刚刚";
@@ -40,32 +40,32 @@
 /* No comment provided by engineer. */
 "Yesterday" = "昨天";
 
-/* No comment provided by engineer. */
-"1 year ago" = "1 year ago";
+/* You can add a space between the number and the characters. */
+"1 year ago" = "1年前";
+
+/* You can add a space between the number and the characters. */
+"1 month ago" = "1个月前";
+
+/* You can add a space between the number and the characters. */
+"1 week ago" = "1周前";
+
+/* You can add a space between the number and the characters. */
+"1 day ago" = "1天前";
 
 /* No comment provided by engineer. */
-"1 month ago" = "1 month ago";
+"This morning" = "今天上午";
 
 /* No comment provided by engineer. */
-"1 week ago" = "1 week ago";
+"This afternoon" = "今天下午";
 
 /* No comment provided by engineer. */
-"1 day ago" = "1 day ago";
+"Today" = "今天";
 
 /* No comment provided by engineer. */
-"This morning" = "This morning";
+"This week" = "本周";
 
 /* No comment provided by engineer. */
-"This afternoon" = "This afternoon";
+"This month" = "本月";
 
 /* No comment provided by engineer. */
-"Today" = "Today";
-
-/* No comment provided by engineer. */
-"This week" = "This week";
-
-/* No comment provided by engineer. */
-"This month" = "This month";
-
-/* No comment provided by engineer. */
-"This year" = "This year";
+"This year" = "今年";
