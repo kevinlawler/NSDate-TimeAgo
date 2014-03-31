@@ -1,23 +1,23 @@
 /* No comment provided by engineer. */
-"%d days ago" = "%d 天前";
+"%d days ago" = "%d天前";
 
 /* No comment provided by engineer. */
-"%d hours ago" = "%d 小时前";
+"%d hours ago" = "%d小时前";
 
 /* No comment provided by engineer. */
-"%d minutes ago" = "%d 分钟前";
+"%d minutes ago" = "%d分钟前";
 
 /* No comment provided by engineer. */
-"%d months ago" = "%d 个月前";
+"%d months ago" = "%d个月前";
 
 /* No comment provided by engineer. */
-"%d seconds ago" = "%d 秒前";
+"%d seconds ago" = "%d秒前";
 
 /* No comment provided by engineer. */
-"%d weeks ago" = "%d 周前";
+"%d weeks ago" = "%d周前";
 
 /* No comment provided by engineer. */
-"%d years ago" = "%d 年前";
+"%d years ago" = "%d年前";
 
 /* No comment provided by engineer. */
 "A minute ago" = "1分钟前";
@@ -32,7 +32,7 @@
 "Last month" = "上个月";
 
 /* No comment provided by engineer. */
-"Last week" = "上周";
+"Last week" = "上个星期";
 
 /* No comment provided by engineer. */
 "Last year" = "去年";
@@ -47,7 +47,7 @@
 "1 month ago" = "1个月前";
 
 /* You can add a space between the number and the characters. */
-"1 week ago" = "1周前";
+"1 week ago" = "1星期前";
 
 /* You can add a space between the number and the characters. */
 "1 day ago" = "1天前";
@@ -62,10 +62,10 @@
 "Today" = "今天";
 
 /* No comment provided by engineer. */
-"This week" = "本周";
+"This week" = "这个星期";
 
 /* No comment provided by engineer. */
-"This month" = "本月";
+"This month" = "这个月";
 
 /* No comment provided by engineer. */
 "This year" = "今年";
