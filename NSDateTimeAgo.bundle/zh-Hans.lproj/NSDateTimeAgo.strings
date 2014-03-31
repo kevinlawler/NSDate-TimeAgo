@@ -14,7 +14,7 @@
 "%d seconds ago" = "%d秒钟前";
 
 /* No comment provided by engineer. */
-"%d weeks ago" = "%d个星期前";
+"%d weeks ago" = "%d星期前";
 
 /* No comment provided by engineer. */
 "%d years ago" = "%d年前";
@@ -32,7 +32,7 @@
 "Last month" = "上个月";
 
 /* No comment provided by engineer. */
-"Last week" = "上个星期";
+"Last week" = "上星期";
 
 /* No comment provided by engineer. */
 "Last year" = "去年";
@@ -47,7 +47,7 @@
 "1 month ago" = "1个月前";
 
 /* You can add a space between the number and the characters. */
-"1 week ago" = "1个星期前";
+"1 week ago" = "1星期前";
 
 /* You can add a space between the number and the characters. */
 "1 day ago" = "1天前";
