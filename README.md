@@ -1,3 +1,12 @@
+## Migration 2014.04.12
+
+NSDate-TimeAgo has merged with DateTools. DateTools is the parent project and Matthew York is the project head.
+
+This project is now part of DateTools. Please go to https://github.com/MatthewYork/DateTools
+
+This repo is here in archive form.
+
+
 ## Description
 
 This is an iOS, Objective-C, Cocoa Touch, iPhone, iPad category for `NSDate`. It gives `NSDate` the ability to report times like `"A moment ago"`, `"30 seconds ago"`, `"5 minutes ago"`, `"Yesterday"`, `"Last month"`, `"2 years ago"`, and so on.
