@@ -1,8 +1,8 @@
 ## Migration 2014.04.12
 
-NSDate-TimeAgo has merged with DateTools. DateTools is the parent project and Matthew York is the project head.
+NSDate+TimeAgo has merged with DateTools. DateTools is the parent project and Matthew York is the project head.
 
-This project is now part of DateTools. Please go to https://github.com/MatthewYork/DateTools
+This project is now part of DateTools. Please visit https://github.com/MatthewYork/DateTools
 
 This repo is here in archive form.
 
