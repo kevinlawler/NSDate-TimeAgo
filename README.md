@@ -4,7 +4,7 @@ NSDate+TimeAgo has merged with DateTools. DateTools is the parent project and Ma
 
 This project is now part of DateTools. Please visit https://github.com/MatthewYork/DateTools
 
-This repo is here in archive form.
+This repo is here in archive form. New work should be contributed to DateTools.
 
 
 ## Description
