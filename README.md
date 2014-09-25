@@ -45,6 +45,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 - th (Thai)
 - uk (Ukrainian)
 - is (Icelandic)
+- sq (Albanian)
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
@@ -141,4 +142,6 @@ Viraf Sarkari added `ar` Arabic, `gre` Greek, `pl` Polish, `sv` Swedish, and `th
 Vasyl Skrypii added `uk` Ukranian strings. https://github.com/medlay 
 
 Maggi Trymbill added `is` Icelandic strings. https://github.com/grundvollur
+
+Erid Bardhaj added `sq` Albanian strings. https://github.com/eridbardhaj
 
