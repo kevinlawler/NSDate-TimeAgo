@@ -16,12 +16,16 @@ let kMonth = kDay * 31
 let kYear = kDay * 365
 
 func NSDateTimeAgoLocalizedStrings(key: String) -> String {
+    guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+        return ""
+    }
     
-    let resourcePath = NSBundle.mainBundle().resourcePath
-    let path = resourcePath?.stringByAppendingPathComponent("NSDateTimeAgo.bundle")
-    let bundle = NSBundle(path: path!)
+    let path = NSURL(fileURLWithPath:resourcePath).URLByAppendingPathComponent("NSDateTimeAgo.bundle")
+    guard let bundle = NSBundle(URL: path) else {
+        return ""
+    }
     
-    return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle!, comment: "")
+    return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle, comment: "")
 }
 
 extension NSDate {
@@ -133,8 +137,9 @@ extension NSDate {
     }
     
     func getLocaleFormatUnderscoresWithValue(value: Double) -> String {
-        
-        let localeCode = NSLocale.preferredLanguages().first as String
+        guard let localeCode = NSLocale.preferredLanguages().first else {
+            return ""
+        }
         
         if localeCode == "ru" {
             let XY = Int(floor(value)) % 100
