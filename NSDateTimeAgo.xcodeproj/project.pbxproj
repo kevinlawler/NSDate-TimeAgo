@@ -14,7 +14,7 @@
 
 /* Begin PBXFileReference section */
 		833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSDateTimeAgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateTimeAgo.h"; sourceTree = "<group>"; };
+		833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateTimeAgo.h; sourceTree = "<group>"; };
 		833CD37D1BCD9BD90085A751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = SOURCE_ROOT; };
@@ -86,7 +86,7 @@
 			dependencies = (
 			);
 			name = NSDateTimeAgo;
-			productName = "NSDateTimeAgo";
+			productName = NSDateTimeAgo;
 			productReference = 833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -245,7 +245,7 @@
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinlawler.NSDateTimeAgo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgo;
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -263,7 +263,7 @@
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinlawler.NSDateTimeAgo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgo;
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
 			};
