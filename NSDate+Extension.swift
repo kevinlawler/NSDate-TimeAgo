@@ -33,7 +33,7 @@ extension NSDate {
     // shows 1 or two letter abbreviation for units.
     // does not include 'ago' text ... just {value}{unit-abbreviation}
     // does not include interim summary options such as 'Just now'
-    var timeAgoSimple: String {
+    public var timeAgoSimple: String {
         
         let now = NSDate()
         let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
@@ -70,7 +70,7 @@ extension NSDate {
         return stringFromFormat("%%d%@yr", withValue: value)
     }
 
-    var timeAgo: String {
+    public var timeAgo: String {
         
         let now = NSDate()
         let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
