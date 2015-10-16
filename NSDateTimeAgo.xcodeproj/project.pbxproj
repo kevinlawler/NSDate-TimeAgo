@@ -353,7 +353,7 @@
 		83AC39111BD066C500A9C7F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = NSDateTimeAgoTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,7 +363,7 @@
 		83AC39121BD066C500A9C7F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = NSDateTimeAgoTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
