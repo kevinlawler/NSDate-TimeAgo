@@ -152,18 +152,19 @@ extension NSDate {
             return ""
         }
         
-        if localeCode == "ru" {
+        // Russian (ru) and Ukrainian (uk)
+        if localeCode == "ru" || localeCode == "uk" {
             let XY = Int(floor(value)) % 100
             let Y = Int(floor(value)) % 10
-            
+
             if Y == 0 || Y > 4 || (XY > 10 && XY < 15) {
                 return ""
             }
-            
+
             if Y > 1 && Y < 5 && (XY < 10 || XY > 20) {
                 return "_"
             }
-            
+
             if Y == 1 && XY != 11 {
                 return "__"
             }
