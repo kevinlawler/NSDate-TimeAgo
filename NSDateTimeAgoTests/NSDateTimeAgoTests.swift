@@ -30,300 +30,90 @@ class NSDateTimeAgoTests: XCTestCase {
 
     // MARK: - timeAgoSimple
 
-    func testTimeAgoSimpleSecond() {
-        let date = self.dateForComponents { components in
-            components.second = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1s")
+    func testTimeAgoSimpleSeconds() {
+        XCTAssertEqual(self.dateForComponents { $0.second = -1 }?.timeAgoSimple, "1s")
+        XCTAssertEqual(self.dateForComponents { $0.second = -2 }?.timeAgoSimple, "2s")
+        XCTAssertEqual(self.dateForComponents { $0.second = -10 }?.timeAgoSimple, "10s")
     }
 
-    func testTimeAgoSimpleTwoSeconds() {
-        let date = self.dateForComponents { components in
-            components.second = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2s")
+    func testTimeAgoSimpleMinutes() {
+        XCTAssertEqual(self.dateForComponents { $0.minute = -1 }?.timeAgoSimple, "1m")
+        XCTAssertEqual(self.dateForComponents { $0.minute = -2 }?.timeAgoSimple, "2m")
+        XCTAssertEqual(self.dateForComponents { $0.minute = -10 }?.timeAgoSimple, "10m")
     }
 
-    func testTimeAgoSimpleTenSeconds() {
-        let date = self.dateForComponents { components in
-            components.second = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "10s")
+    func testTimeAgoSimpleHours() {
+        XCTAssertEqual(self.dateForComponents { $0.hour = -1 }?.timeAgoSimple, "1h")
+        XCTAssertEqual(self.dateForComponents { $0.hour = -2 }?.timeAgoSimple, "2h")
+        XCTAssertEqual(self.dateForComponents { $0.hour = -10 }?.timeAgoSimple, "10h")
     }
 
-    func testTimeAgoSimpleMinute() {
-        let date = self.dateForComponents { components in
-            components.minute = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1m")
+    func testTimeAgoSimpleDays() {
+        XCTAssertEqual(self.dateForComponents { $0.day = -1 }?.timeAgoSimple, "1d")
+        XCTAssertEqual(self.dateForComponents { $0.day = -2 }?.timeAgoSimple, "2d")
+        XCTAssertEqual(self.dateForComponents { $0.day = -10 }?.timeAgoSimple, "1w")
     }
 
-    func testTimeAgoSimpleTwoMinutes() {
-        let date = self.dateForComponents { components in
-            components.minute = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2m")
+    func testTimeAgoSimpleWeeks() {
+        XCTAssertEqual(self.dateForComponents { $0.day = -7 }?.timeAgoSimple, "1w")
+        XCTAssertEqual(self.dateForComponents { $0.day = -7*2 }?.timeAgoSimple, "2w")
+        XCTAssertEqual(self.dateForComponents { $0.day = -7*10 }?.timeAgoSimple, "2mo")
     }
 
-    func testTimeAgoSimpleTenMinutes() {
-        let date = self.dateForComponents { components in
-            components.minute = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "10m")
+    func testTimeAgoSimpleMonths() {
+        XCTAssertEqual(self.dateForComponents { $0.month = -1 }?.timeAgoSimple, "1mo")
+        XCTAssertEqual(self.dateForComponents { $0.month = -2 }?.timeAgoSimple, "2mo")
+        XCTAssertEqual(self.dateForComponents { $0.month = -10 }?.timeAgoSimple, "10mo")
     }
 
-    func testTimeAgoSimpleHour() {
-        let date = self.dateForComponents { components in
-            components.hour = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1h")
-    }
-
-    func testTimeAgoSimpleTwoHours() {
-        let date = self.dateForComponents { components in
-            components.hour = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2h")
-    }
-
-    func testTimeAgoSimpleTenHours() {
-        let date = self.dateForComponents { components in
-            components.hour = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "10h")
-    }
-
-    func testTimeAgoSimpleDay() {
-        let date = self.dateForComponents { components in
-            components.day = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1d")
-    }
-
-    func testTimeAgoSimpleTwoDays() {
-        let date = self.dateForComponents { components in
-            components.day = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2d")
-    }
-
-    func testTimeAgoSimpleTenDays() {
-        let date = self.dateForComponents { components in
-            components.day = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1w")
-    }
-
-    func testTimeAgoSimpleWeek() {
-        let date = self.dateForComponents { components in
-            components.day = -7
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1w")
-    }
-
-    func testTimeAgoSimpleTwoWeeks() {
-        let date = self.dateForComponents { components in
-            components.day = -7*2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2w")
-    }
-
-    func testTimeAgoSimpleTenWeeks() {
-        let date = self.dateForComponents { components in
-            components.day = -7*10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2mo")
-    }
-
-    func testTimeAgoSimpleMonth() {
-        let date = self.dateForComponents { components in
-            components.month = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1mo")
-    }
-
-    func testTimeAgoSimpleTwoMonths() {
-        let date = self.dateForComponents { components in
-            components.month = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2mo")
-    }
-
-    func testTimeAgoSimpleTenMonths() {
-        let date = self.dateForComponents { components in
-            components.month = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "10mo")
-    }
-
-    func testTimeAgoSimpleYear() {
-        let date = self.dateForComponents { components in
-            components.year = -1
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "1yr")
-    }
-
-    func testTimeAgoSimpleTwoYears() {
-        let date = self.dateForComponents { components in
-            components.year = -2
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "2yr")
-    }
-
-    func testTimeAgoSimpleTenYears() {
-        let date = self.dateForComponents { components in
-            components.year = -10
-        }
-        XCTAssertEqual(date?.timeAgoSimple, "10yr")
+    func testTimeAgoSimpleYears() {
+        XCTAssertEqual(self.dateForComponents { $0.year = -1 }?.timeAgoSimple, "1yr")
+        XCTAssertEqual(self.dateForComponents { $0.year = -2 }?.timeAgoSimple, "2yr")
+        XCTAssertEqual(self.dateForComponents { $0.year = -10 }?.timeAgoSimple, "10yr")
     }
 
     // MARK: - timeAgo
 
-    func testTimeAgoSecond() {
-        let date = self.dateForComponents { components in
-            components.second = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "Just now")
+    func testTimeAgoSeconds() {
+        XCTAssertEqual(self.dateForComponents { $0.second = -1 }?.timeAgo, "Just now")
+        XCTAssertEqual(self.dateForComponents { $0.second = -2 }?.timeAgo, "Just now")
+        XCTAssertEqual(self.dateForComponents { $0.second = -10 }?.timeAgo, "10 seconds ago")
     }
 
-    func testTimeAgoTwoSeconds() {
-        let date = self.dateForComponents { components in
-            components.second = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "Just now")
+    func testTimeAgoMinutes() {
+        XCTAssertEqual(self.dateForComponents { $0.minute = -1 }?.timeAgo, "A minute ago")
+        XCTAssertEqual(self.dateForComponents { $0.minute = -2 }?.timeAgo, "2 minutes ago")
+        XCTAssertEqual(self.dateForComponents { $0.minute = -10 }?.timeAgo, "10 minutes ago")
     }
 
-    func testTimeAgoTenSeconds() {
-        let date = self.dateForComponents { components in
-            components.second = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "10 seconds ago")
+    func testTimeAgoHours() {
+        XCTAssertEqual(self.dateForComponents { $0.hour = -1 }?.timeAgo, "An hour ago")
+        XCTAssertEqual(self.dateForComponents { $0.hour = -2 }?.timeAgo, "2 hours ago")
+        XCTAssertEqual(self.dateForComponents { $0.hour = -10 }?.timeAgo, "10 hours ago")
     }
 
-    func testTimeAgoMinute() {
-        let date = self.dateForComponents { components in
-            components.minute = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "A minute ago")
+    func testTimeAgoDays() {
+        XCTAssertEqual(self.dateForComponents { $0.day = -1 }?.timeAgo, "Yesterday")
+        XCTAssertEqual(self.dateForComponents { $0.day = -2 }?.timeAgo, "2 days ago")
+        XCTAssertEqual(self.dateForComponents { $0.day = -10 }?.timeAgo, "Last week")
     }
 
-    func testTimeAgoTwoMinutes() {
-        let date = self.dateForComponents { components in
-            components.minute = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 minutes ago")
+    func testTimeAgoWeeks() {
+        XCTAssertEqual(self.dateForComponents { $0.day = -7 }?.timeAgo, "Last week")
+        XCTAssertEqual(self.dateForComponents { $0.day = -7*2 }?.timeAgo, "2 weeks ago")
+        XCTAssertEqual(self.dateForComponents { $0.day = -7*10 }?.timeAgo, "2 months ago")
     }
 
-    func testTimeAgoTenMinutes() {
-        let date = self.dateForComponents { components in
-            components.minute = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "10 minutes ago")
+    func testTimeAgoMonths() {
+        XCTAssertEqual(self.dateForComponents { $0.month = -1 }?.timeAgo, "Last month")
+        XCTAssertEqual(self.dateForComponents { $0.month = -2 }?.timeAgo, "2 months ago")
+        XCTAssertEqual(self.dateForComponents { $0.month = -10 }?.timeAgo, "10 months ago")
     }
 
-    func testTimeAgoHour() {
-        let date = self.dateForComponents { components in
-            components.hour = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "An hour ago")
-    }
-
-    func testTimeAgoTwoHours() {
-        let date = self.dateForComponents { components in
-            components.hour = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 hours ago")
-    }
-
-    func testTimeAgoTenHours() {
-        let date = self.dateForComponents { components in
-            components.hour = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "10 hours ago")
-    }
-
-    func testTimeAgoDay() {
-        let date = self.dateForComponents { components in
-            components.day = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "Yesterday")
-    }
-
-    func testTimeAgoTwoDays() {
-        let date = self.dateForComponents { components in
-            components.day = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 days ago")
-    }
-
-    func testTimeAgoTenDays() {
-        let date = self.dateForComponents { components in
-            components.day = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "Last week")
-    }
-
-    func testTimeAgoWeek() {
-        let date = self.dateForComponents { components in
-            components.day = -7
-        }
-        XCTAssertEqual(date?.timeAgo, "Last week")
-    }
-
-    func testTimeAgoTwoWeeks() {
-        let date = self.dateForComponents { components in
-            components.day = -7*2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 weeks ago")
-    }
-
-    func testTimeAgoTenWeeks() {
-        let date = self.dateForComponents { components in
-            components.day = -7*10
-        }
-        XCTAssertEqual(date?.timeAgo, "2 months ago")
-    }
-
-    func testTimeAgoMonth() {
-        let date = self.dateForComponents { components in
-            components.month = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "Last month")
-    }
-
-    func testTimeAgoTwoMonths() {
-        let date = self.dateForComponents { components in
-            components.month = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 months ago")
-    }
-
-    func testTimeAgoTenMonths() {
-        let date = self.dateForComponents { components in
-            components.month = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "10 months ago")
-    }
-
-    func testTimeAgoYear() {
-        let date = self.dateForComponents { components in
-            components.year = -1
-        }
-        XCTAssertEqual(date?.timeAgo, "Last year")
-    }
-
-    func testTimeAgoTwoYears() {
-        let date = self.dateForComponents { components in
-            components.year = -2
-        }
-        XCTAssertEqual(date?.timeAgo, "2 years ago")
-    }
-
-    func testTimeAgoTenYears() {
-        let date = self.dateForComponents { components in
-            components.year = -10
-        }
-        XCTAssertEqual(date?.timeAgo, "10 years ago")
+    func testTimeAgoYears() {
+        XCTAssertEqual(self.dateForComponents { $0.year = -1 }?.timeAgo, "Last year")
+        XCTAssertEqual(self.dateForComponents { $0.year = -2 }?.timeAgo, "2 years ago")
+        XCTAssertEqual(self.dateForComponents { $0.year = -10 }?.timeAgo, "10 years ago")
     }
     
 }
