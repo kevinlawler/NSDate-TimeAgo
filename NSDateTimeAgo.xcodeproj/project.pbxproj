@@ -10,7 +10,19 @@
 		833CD37C1BCD9BD90085A751 /* NSDateTimeAgo.h in Headers */ = {isa = PBXBuildFile; fileRef = 833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		838CF4311BCD9CB900562CA9 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		838CF4331BCD9CFF00562CA9 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */; settings = {ASSET_TAGS = (); }; };
+		83AC390C1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC390B1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift */; };
+		83AC390E1BD066C500A9C7F7 /* NSDateTimeAgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83AC390F1BD066C500A9C7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833CD36F1BCD9BD90085A751 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 833CD3771BCD9BD90085A751;
+			remoteInfo = NSDateTimeAgo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSDateTimeAgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -18,6 +30,9 @@
 		833CD37D1BCD9BD90085A751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = SOURCE_ROOT; };
+		83AC39091BD066C500A9C7F7 /* NSDateTimeAgoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSDateTimeAgoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83AC390B1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateTimeAgoTests.swift; sourceTree = "<group>"; };
+		83AC390D1BD066C500A9C7F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +43,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83AC39061BD066C500A9C7F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AC390E1BD066C500A9C7F7 /* NSDateTimeAgo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -35,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				833CD37A1BCD9BD90085A751 /* Framework */,
+				83AC390A1BD066C500A9C7F7 /* NSDateTimeAgoTests */,
 				833CD3791BCD9BD90085A751 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */,
+				83AC39091BD066C500A9C7F7 /* NSDateTimeAgoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +81,15 @@
 				833CD37D1BCD9BD90085A751 /* Info.plist */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		83AC390A1BD066C500A9C7F7 /* NSDateTimeAgoTests */ = {
+			isa = PBXGroup;
+			children = (
+				83AC390B1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift */,
+				83AC390D1BD066C500A9C7F7 /* Info.plist */,
+			);
+			path = NSDateTimeAgoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +124,24 @@
 			productReference = 833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		83AC39081BD066C500A9C7F7 /* NSDateTimeAgoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83AC39131BD066C500A9C7F7 /* Build configuration list for PBXNativeTarget "NSDateTimeAgoTests" */;
+			buildPhases = (
+				83AC39051BD066C500A9C7F7 /* Sources */,
+				83AC39061BD066C500A9C7F7 /* Frameworks */,
+				83AC39071BD066C500A9C7F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83AC39101BD066C500A9C7F7 /* PBXTargetDependency */,
+			);
+			name = NSDateTimeAgoTests;
+			productName = NSDateTimeAgoTests;
+			productReference = 83AC39091BD066C500A9C7F7 /* NSDateTimeAgoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -101,6 +153,9 @@
 				ORGANIZATIONNAME = "Kevin Lawler";
 				TargetAttributes = {
 					833CD3771BCD9BD90085A751 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					83AC39081BD066C500A9C7F7 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
@@ -118,6 +173,7 @@
 			projectRoot = "";
 			targets = (
 				833CD3771BCD9BD90085A751 /* NSDateTimeAgo */,
+				83AC39081BD066C500A9C7F7 /* NSDateTimeAgoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				838CF4331BCD9CFF00562CA9 /* NSDateTimeAgo.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83AC39071BD066C500A9C7F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +205,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83AC39051BD066C500A9C7F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AC390C1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83AC39101BD066C500A9C7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 833CD3771BCD9BD90085A751 /* NSDateTimeAgo */;
+			targetProxy = 83AC390F1BD066C500A9C7F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		833CD38A1BCD9BD90085A751 /* Debug */ = {
@@ -271,6 +350,26 @@
 			};
 			name = Release;
 		};
+		83AC39111BD066C500A9C7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NSDateTimeAgoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83AC39121BD066C500A9C7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NSDateTimeAgoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -291,6 +390,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		83AC39131BD066C500A9C7F7 /* Build configuration list for PBXNativeTarget "NSDateTimeAgoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83AC39111BD066C500A9C7F7 /* Debug */,
+				83AC39121BD066C500A9C7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

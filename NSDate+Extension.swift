@@ -16,15 +16,25 @@ let kMonth = kDay * 31
 let kYear = kDay * 365
 
 func NSDateTimeAgoLocalizedStrings(key: String) -> String {
-    guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+    let resourcePath: String?
+
+    if let frameworkBundle = NSBundle(identifier: "com.kevinlawler.NSDateTimeAgo") {
+        // Load from Framework
+        resourcePath = frameworkBundle.resourcePath
+    } else {
+        // Load from Main Bundle
+        resourcePath = NSBundle.mainBundle().resourcePath
+    }
+
+    if resourcePath == nil {
         return ""
     }
-    
-    let path = NSURL(fileURLWithPath:resourcePath).URLByAppendingPathComponent("NSDateTimeAgo.bundle")
+
+    let path = NSURL(fileURLWithPath: resourcePath!).URLByAppendingPathComponent("NSDateTimeAgo.bundle")
     guard let bundle = NSBundle(URL: path) else {
         return ""
     }
-    
+
     return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle, comment: "")
 }
 
@@ -34,7 +44,6 @@ extension NSDate {
     // does not include 'ago' text ... just {value}{unit-abbreviation}
     // does not include interim summary options such as 'Just now'
     public var timeAgoSimple: String {
-        
         let now = NSDate()
         let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
         let deltaMinutes = deltaSeconds / 60
@@ -71,7 +80,6 @@ extension NSDate {
     }
 
     public var timeAgo: String {
-        
         let now = NSDate()
         let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
         let deltaMinutes = deltaSeconds / 60
@@ -126,13 +134,10 @@ extension NSDate {
         // Years Ago
         value = Int(floor(Float(deltaMinutes / kYear)))
         return stringFromFormat("%%d %@years ago", withValue: value)
-        
     }
     
     func stringFromFormat(format: String, withValue value: Int) -> String {
-        
         let localeFormat = String(format: format, getLocaleFormatUnderscoresWithValue(Double(value)))
-        
         return String(format: NSDateTimeAgoLocalizedStrings(localeFormat), value)
     }
     
