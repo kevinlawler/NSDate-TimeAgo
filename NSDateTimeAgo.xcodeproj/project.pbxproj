@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				833CD37A1BCD9BD90085A751 /* Framework */,
-				83AC390A1BD066C500A9C7F7 /* NSDateTimeAgoTests */,
+				83AC390A1BD066C500A9C7F7 /* Tests */,
 				833CD3791BCD9BD90085A751 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,13 +83,13 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
-		83AC390A1BD066C500A9C7F7 /* NSDateTimeAgoTests */ = {
+		83AC390A1BD066C500A9C7F7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				83AC390B1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift */,
 				83AC390D1BD066C500A9C7F7 /* Info.plist */,
 			);
-			path = NSDateTimeAgoTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
