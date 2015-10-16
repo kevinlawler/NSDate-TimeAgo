@@ -22,10 +22,10 @@ class NSDateTimeAgoTests: XCTestCase {
     }
 
     func dateForComponents(block: (components: NSDateComponents) -> Void) -> NSDate? {
-        let calander = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let calander = NSCalendar.currentCalendar()
         let components = NSDateComponents()
         block(components: components)
-        return calander?.dateByAddingComponents(components, toDate: NSDate(), options: [])
+        return calander.dateByAddingComponents(components, toDate: NSDate(), options: [])
     }
 
     // MARK: - timeAgoSimple
