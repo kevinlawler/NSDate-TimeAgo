@@ -9,22 +9,26 @@
 
 import Foundation
 
-let kMinute = 60
-let kDay = kMinute * 24
-let kWeek = kDay * 7
-let kMonth = kDay * 31
-let kYear = kDay * 365
-
 func NSDateTimeAgoLocalizedStrings(key: String) -> String {
-    guard let resourcePath = NSBundle.mainBundle().resourcePath else {
+    let resourcePath: String?
+
+    if let frameworkBundle = NSBundle(identifier: "com.kevinlawler.NSDateTimeAgo") {
+        // Load from Framework
+        resourcePath = frameworkBundle.resourcePath
+    } else {
+        // Load from Main Bundle
+        resourcePath = NSBundle.mainBundle().resourcePath
+    }
+
+    if resourcePath == nil {
         return ""
     }
-    
-    let path = NSURL(fileURLWithPath:resourcePath).URLByAppendingPathComponent("NSDateTimeAgo.bundle")
+
+    let path = NSURL(fileURLWithPath: resourcePath!).URLByAppendingPathComponent("NSDateTimeAgo.bundle")
     guard let bundle = NSBundle(URL: path) else {
         return ""
     }
-    
+
     return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle, comment: "")
 }
 
@@ -33,126 +37,134 @@ extension NSDate {
     // shows 1 or two letter abbreviation for units.
     // does not include 'ago' text ... just {value}{unit-abbreviation}
     // does not include interim summary options such as 'Just now'
-    var timeAgoSimple: String {
-        
-        let now = NSDate()
-        let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
-        let deltaMinutes = deltaSeconds / 60
-        
-        var value: Int!
-        
-        if deltaSeconds < kMinute {
-            // Seconds
-            return stringFromFormat("%%d%@s", withValue: deltaSeconds)
-        } else if deltaMinutes < kMinute {
-            // Minutes
-            return stringFromFormat("%%d%@m", withValue: deltaMinutes)
-        } else if deltaMinutes < kDay {
-            // Hours
-            value = Int(floor(Float(deltaMinutes / kMinute)))
-            return stringFromFormat("%%d%@h", withValue: value)
-        } else if deltaMinutes < kWeek {
-            // Days
-            value = Int(floor(Float(deltaMinutes / kDay)))
-            return stringFromFormat("%%d%@d", withValue: value)
-        } else if deltaMinutes < kMonth {
-            // Weeks
-            value = Int(floor(Float(deltaMinutes / kWeek)))
-            return stringFromFormat("%%d%@w", withValue: value)
-        } else if deltaMinutes < kYear {
-            // Month
-            value = Int(floor(Float(deltaMinutes / kMonth)))
-            return stringFromFormat("%%d%@mo", withValue: value)
+    public var timeAgoSimple: String {
+        let components = self.dateComponents()
+
+        if components.year > 0 {
+            return stringFromFormat("%%d%@yr", withValue: components.year)
         }
-        
-        // Years
-        value = Int(floor(Float(deltaMinutes / kYear)))
-        return stringFromFormat("%%d%@yr", withValue: value)
+
+        if components.month > 0 {
+            return stringFromFormat("%%d%@mo", withValue: components.month)
+        }
+
+        // TODO: localize for other calanders
+        if components.day >= 7 {
+            let value = components.day/7
+            return stringFromFormat("%%d%@w", withValue: value)
+        }
+
+        if components.day > 0 {
+            return stringFromFormat("%%d%@d", withValue: components.day)
+        }
+
+        if components.hour > 0 {
+            return stringFromFormat("%%d%@h", withValue: components.hour)
+        }
+
+        if components.minute > 0 {
+            return stringFromFormat("%%d%@m", withValue: components.minute)
+        }
+
+        if components.second > 0 {
+            return stringFromFormat("%%d%@s", withValue: components.second )
+        }
+
+        return ""
     }
 
-    var timeAgo: String {
-        
-        let now = NSDate()
-        let deltaSeconds = Int(fabs(timeIntervalSinceDate(now)))
-        let deltaMinutes = deltaSeconds / 60
-        
-        var value: Int!
-        
-        if deltaSeconds < 5 {
-            // Just Now
-            return NSDateTimeAgoLocalizedStrings("Just now")
-        } else if deltaSeconds < kMinute {
-            // Seconds Ago
-            return stringFromFormat("%%d %@seconds ago", withValue: deltaSeconds)
-        } else if deltaSeconds < 120 {
-            // A Minute Ago
-            return NSDateTimeAgoLocalizedStrings("A minute ago")
-        } else if deltaMinutes < kMinute {
-            // Minutes Ago
-            return stringFromFormat("%%d %@minutes ago", withValue: deltaMinutes)
-        } else if deltaMinutes < 120 {
-            // An Hour Ago
-            return NSDateTimeAgoLocalizedStrings("An hour ago")
-        } else if deltaMinutes < kDay {
-            // Hours Ago
-            value = Int(floor(Float(deltaMinutes / kMinute)))
-            return stringFromFormat("%%d %@hours ago", withValue: value)
-        } else if deltaMinutes < (kDay * 2) {
-            // Yesterday
-            return NSDateTimeAgoLocalizedStrings("Yesterday")
-        } else if deltaMinutes < kWeek {
-            // Days Ago
-            value = Int(floor(Float(deltaMinutes / kDay)))
-            return stringFromFormat("%%d %@days ago", withValue: value)
-        } else if deltaMinutes < (kWeek * 2) {
-            // Last Week
-            return NSDateTimeAgoLocalizedStrings("Last week")
-        } else if deltaMinutes < kMonth {
-            // Weeks Ago
-            value = Int(floor(Float(deltaMinutes / kWeek)))
-            return stringFromFormat("%%d %@weeks ago", withValue: value)
-        } else if deltaMinutes < (kDay * 61) {
-            // Last month
-            return NSDateTimeAgoLocalizedStrings("Last month")
-        } else if deltaMinutes < kYear {
-            // Month Ago
-            value = Int(floor(Float(deltaMinutes / kMonth)))
-            return stringFromFormat("%%d %@months ago", withValue: value)
-        } else if deltaMinutes < (kDay * (kYear * 2)) {
-            // Last Year
-            return NSDateTimeAgoLocalizedStrings("Last Year")
+    public var timeAgo: String {
+        let components = self.dateComponents()
+
+        if components.year > 0 {
+            if components.year < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last year")
+            } else {
+                return stringFromFormat("%%d %@years ago", withValue: components.year)
+            }
+        }
+
+        if components.month > 0 {
+            if components.month < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last month")
+            } else {
+                return stringFromFormat("%%d %@months ago", withValue: components.month)
+            }
+        }
+
+        // TODO: localize for other calanders
+        if components.day >= 7 {
+            let week = components.day/7
+            if week < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last week")
+            } else {
+                return stringFromFormat("%%d %@weeks ago", withValue: week)
+            }
+        }
+
+        if components.day > 0 {
+            if components.day < 2 {
+                return NSDateTimeAgoLocalizedStrings("Yesterday")
+            } else  {
+                return stringFromFormat("%%d %@days ago", withValue: components.day)
+            }
+        }
+
+        if components.hour > 0 {
+            if components.hour < 2 {
+                return NSDateTimeAgoLocalizedStrings("An hour ago")
+            } else  {
+                return stringFromFormat("%%d %@hours ago", withValue: components.hour)
+            }
+        }
+
+        if components.minute > 0 {
+            if components.minute < 2 {
+                return NSDateTimeAgoLocalizedStrings("A minute ago")
+            } else {
+                return stringFromFormat("%%d %@minutes ago", withValue: components.minute)
+            }
+        }
+
+        if components.second > 0 {
+            if components.second < 5 {
+                return NSDateTimeAgoLocalizedStrings("Just now")
+            } else {
+                return stringFromFormat("%%d %@seconds ago", withValue: components.second)
+            }
         }
         
-        // Years Ago
-        value = Int(floor(Float(deltaMinutes / kYear)))
-        return stringFromFormat("%%d %@years ago", withValue: value)
-        
+        return ""
     }
-    
-    func stringFromFormat(format: String, withValue value: Int) -> String {
-        
+
+    private func dateComponents() -> NSDateComponents {
+        let calander = NSCalendar.currentCalendar()
+        return calander.components([.Second, .Minute, .Hour, .Day, .Month, .Year], fromDate: self, toDate: NSDate(), options: [])
+    }
+
+    private func stringFromFormat(format: String, withValue value: Int) -> String {
         let localeFormat = String(format: format, getLocaleFormatUnderscoresWithValue(Double(value)))
-        
         return String(format: NSDateTimeAgoLocalizedStrings(localeFormat), value)
     }
     
-    func getLocaleFormatUnderscoresWithValue(value: Double) -> String {
+    private func getLocaleFormatUnderscoresWithValue(value: Double) -> String {
         guard let localeCode = NSLocale.preferredLanguages().first else {
             return ""
         }
         
-        if localeCode == "ru" {
+        // Russian (ru) and Ukrainian (uk)
+        if localeCode == "ru" || localeCode == "uk" {
             let XY = Int(floor(value)) % 100
             let Y = Int(floor(value)) % 10
-            
+
             if Y == 0 || Y > 4 || (XY > 10 && XY < 15) {
                 return ""
             }
-            
+
             if Y > 1 && Y < 5 && (XY < 10 || XY > 20) {
                 return "_"
             }
-            
+
             if Y == 1 && XY != 11 {
                 return "__"
             }

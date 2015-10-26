@@ -1,3 +1,5 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## Migration 2014.04.12
 
 NSDate+TimeAgo has merged with DateTools. DateTools is the parent project and Matthew York is the project head.
