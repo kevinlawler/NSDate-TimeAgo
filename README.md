@@ -8,6 +8,7 @@ This project is now part of DateTools. Please visit https://github.com/MatthewYo
 
 This repo is here in archive form. New work should be contributed to DateTools.
 
+2016.01.04. To reiterate, all issues and contributions should go to DateTools, there is zero promise anything here will be looked at. Kevin's attention is on [Kerf](http://kerfsoftware.com).
 
 ## Description
 
