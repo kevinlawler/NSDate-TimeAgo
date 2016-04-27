@@ -6,7 +6,7 @@
 //  Copyright © 2015 Kevin Lawler. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for NSDate-TimeAgo.
 FOUNDATION_EXPORT double NSDate_TimeAgoVersionNumber;
