@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5357883A1CD03AB200F72193 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */; };
+		5357883B1CD03ADE00F72193 /* NSDateTimeAgo.h in Headers */ = {isa = PBXBuildFile; fileRef = 833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5357883C1CD03AEA00F72193 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */; };
 		833CD37C1BCD9BD90085A751 /* NSDateTimeAgo.h in Headers */ = {isa = PBXBuildFile; fileRef = 833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		838CF4311BCD9CB900562CA9 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */; settings = {ASSET_TAGS = (); }; };
-		838CF4331BCD9CFF00562CA9 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */; settings = {ASSET_TAGS = (); }; };
+		838CF4311BCD9CB900562CA9 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CF4301BCD9CB900562CA9 /* NSDate+Extension.swift */; };
+		838CF4331BCD9CFF00562CA9 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 838CF4321BCD9CFF00562CA9 /* NSDateTimeAgo.bundle */; };
 		83AC390C1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC390B1BD066C500A9C7F7 /* NSDateTimeAgoTests.swift */; };
-		83AC390E1BD066C500A9C7F7 /* NSDateTimeAgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */; settings = {ASSET_TAGS = (); }; };
+		83AC390E1BD066C500A9C7F7 /* NSDateTimeAgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		535788321CD03AAB00F72193 /* NSDateTimeAgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSDateTimeAgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSDateTimeAgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		833CD37B1BCD9BD90085A751 /* NSDateTimeAgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDateTimeAgo.h; sourceTree = "<group>"; };
 		833CD37D1BCD9BD90085A751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +40,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5357882E1CD03AAB00F72193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		833CD3741BCD9BD90085A751 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +79,7 @@
 			children = (
 				833CD3781BCD9BD90085A751 /* NSDateTimeAgo.framework */,
 				83AC39091BD066C500A9C7F7 /* NSDateTimeAgoTests.xctest */,
+				535788321CD03AAB00F72193 /* NSDateTimeAgo.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +107,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5357882F1CD03AAB00F72193 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5357883B1CD03ADE00F72193 /* NSDateTimeAgo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		833CD3751BCD9BD90085A751 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +126,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		535788311CD03AAB00F72193 /* NSDateTimeAgo-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 535788391CD03AAB00F72193 /* Build configuration list for PBXNativeTarget "NSDateTimeAgo-OSX" */;
+			buildPhases = (
+				5357882D1CD03AAB00F72193 /* Sources */,
+				5357882E1CD03AAB00F72193 /* Frameworks */,
+				5357882F1CD03AAB00F72193 /* Headers */,
+				535788301CD03AAB00F72193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NSDateTimeAgo-OSX";
+			productName = "NSDateTimeAgo-OSX";
+			productReference = 535788321CD03AAB00F72193 /* NSDateTimeAgo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		833CD3771BCD9BD90085A751 /* NSDateTimeAgo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 833CD38C1BCD9BD90085A751 /* Build configuration list for PBXNativeTarget "NSDateTimeAgo" */;
@@ -152,6 +190,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Kevin Lawler";
 				TargetAttributes = {
+					535788311CD03AAB00F72193 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					833CD3771BCD9BD90085A751 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
@@ -174,11 +215,20 @@
 			targets = (
 				833CD3771BCD9BD90085A751 /* NSDateTimeAgo */,
 				83AC39081BD066C500A9C7F7 /* NSDateTimeAgoTests */,
+				535788311CD03AAB00F72193 /* NSDateTimeAgo-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		535788301CD03AAB00F72193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5357883C1CD03AEA00F72193 /* NSDateTimeAgo.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		833CD3761BCD9BD90085A751 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +247,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5357882D1CD03AAB00F72193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5357883A1CD03AB200F72193 /* NSDate+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		833CD3731BCD9BD90085A751 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +282,50 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		535788371CD03AAB00F72193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgo;
+				PRODUCT_NAME = NSDateTimeAgo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		535788381CD03AAB00F72193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgo;
+				PRODUCT_NAME = NSDateTimeAgo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		833CD38A1BCD9BD90085A751 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,6 +475,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		535788391CD03AAB00F72193 /* Build configuration list for PBXNativeTarget "NSDateTimeAgo-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				535788371CD03AAB00F72193 /* Debug */,
+				535788381CD03AAB00F72193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		833CD3721BCD9BD90085A751 /* Build configuration list for PBXProject "NSDateTimeAgo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -398,6 +509,7 @@
 				83AC39121BD066C500A9C7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
