@@ -153,7 +153,7 @@ extension NSDate {
         }
         
         // Russian (ru) and Ukrainian (uk)
-        if localeCode == "ru" || localeCode == "uk" {
+        if localeCode.hasPrefix("ru") || localeCode.hasPrefix("uk") {
             let XY = Int(floor(value)) % 100
             let Y = Int(floor(value)) % 10
 
