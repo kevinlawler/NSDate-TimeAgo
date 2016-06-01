@@ -363,7 +363,7 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
     NSString *localeCode = [[NSLocale preferredLanguages] objectAtIndex:0];
     
     // Russian (ru)
-    if([localeCode isEqual:@"ru"]) {
+    if([localeCode hasPrefix:@"ru"] || [localeCode hasPrefix:@"uk"]) {
         int XY = (int)floor(value) % 100;
         int Y = (int)floor(value) % 10;
         
