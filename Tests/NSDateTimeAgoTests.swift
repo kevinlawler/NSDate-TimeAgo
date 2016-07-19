@@ -22,7 +22,7 @@ class NSDateTimeAgoTests: XCTestCase {
     }
 
     func dateForComponents(block: (inout components: DateComponents) -> Void) -> Date? {
-        let calander = Calendar.current()
+        let calander = Calendar.current
         var components = DateComponents()
         block(components: &components)
         return calander.date(byAdding: components, to: Date(), options: [])

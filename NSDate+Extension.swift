@@ -17,7 +17,7 @@ func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
         resourcePath = frameworkBundle.resourcePath
     } else {
         // Load from Main Bundle
-        resourcePath = Bundle.main().resourcePath
+        resourcePath = Bundle.main.resourcePath
     }
 
     if resourcePath == nil {
@@ -138,7 +138,7 @@ extension Date {
     }
 
     private func dateComponents() -> DateComponents {
-        let calander = Calendar.current()
+        let calander = Calendar.current
         return calander.components([.second, .minute, .hour, .day, .month, .year], from: self, to: Date(), options: [])
     }
 
@@ -148,7 +148,7 @@ extension Date {
     }
     
     private func getLocaleFormatUnderscores(withValue value: Double) -> String {
-        guard let localeCode = Locale.preferredLanguages().first else {
+        guard let localeCode = Locale.preferredLanguages.first else {
             return ""
         }
         
