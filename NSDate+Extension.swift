@@ -24,7 +24,7 @@ func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
         return ""
     }
 
-    let path = try! URL(fileURLWithPath: resourcePath!).appendingPathComponent("NSDateTimeAgo.bundle")
+    let path = URL(fileURLWithPath: resourcePath!).appendingPathComponent("NSDateTimeAgo.bundle")
     guard let bundle = Bundle(url: path) else {
         return ""
     }
@@ -138,8 +138,7 @@ extension Date {
     }
 
     private func dateComponents() -> DateComponents {
-        let calander = Calendar.current
-        return calander.components([.second, .minute, .hour, .day, .month, .year], from: self, to: Date(), options: [])
+        return Calendar.current.dateComponents([.second, .minute, .hour, .day, .month, .year], from: self, to: Date())
     }
 
     private func string(fromFormat format: String, withValue value: Int) -> String {
