@@ -40,33 +40,33 @@ extension Date {
     public var timeAgoSimple: String {
         let components = self.dateComponents()
 
-        if components.year > 0 {
+        if components.year! > 0 {
             return self.string(fromFormat: "%%d%@yr", withValue: components.year!)
         }
 
-        if components.month > 0 {
+        if components.month! > 0 {
             return self.string(fromFormat: "%%d%@mo", withValue: components.month!)
         }
 
         // TODO: localize for other calanders
-        if components.day >= 7 {
+        if components.day! >= 7 {
             let value = components.day!/7
             return self.string(fromFormat: "%%d%@w", withValue: value)
         }
 
-        if components.day > 0 {
+        if components.day! > 0 {
             return self.string(fromFormat: "%%d%@d", withValue: components.day!)
         }
 
-        if components.hour > 0 {
+        if components.hour! > 0 {
             return self.string(fromFormat: "%%d%@h", withValue: components.hour!)
         }
 
-        if components.minute > 0 {
+        if components.minute! > 0 {
             return self.string(fromFormat: "%%d%@m", withValue: components.minute!)
         }
 
-        if components.second > 0 {
+        if components.second! > 0 {
             return self.string(fromFormat: "%%d%@s", withValue: components.second! )
         }
 
@@ -76,16 +76,16 @@ extension Date {
     public var timeAgo: String {
         let components = self.dateComponents()
 
-        if components.year > 0 {
-            if components.year < 2 {
+        if components.year! > 0 {
+            if components.year! < 2 {
                 return NSDateTimeAgoLocalizedStrings("Last year")
             } else {
                 return self.string(fromFormat: "%%d %@years ago", withValue: components.year!)
             }
         }
 
-        if components.month > 0 {
-            if components.month < 2 {
+        if components.month! > 0 {
+            if components.month! < 2 {
                 return NSDateTimeAgoLocalizedStrings("Last month")
             } else {
                 return self.string(fromFormat: "%%d %@months ago", withValue: components.month!)
@@ -93,7 +93,7 @@ extension Date {
         }
 
         // TODO: localize for other calanders
-        if components.day >= 7 {
+        if components.day! >= 7 {
             let week = components.day!/7
             if week < 2 {
                 return NSDateTimeAgoLocalizedStrings("Last week")
@@ -102,32 +102,32 @@ extension Date {
             }
         }
 
-        if components.day > 0 {
-            if components.day < 2 {
+        if components.day! > 0 {
+            if components.day! < 2 {
                 return NSDateTimeAgoLocalizedStrings("Yesterday")
             } else  {
                 return self.string(fromFormat: "%%d %@days ago", withValue: components.day!)
             }
         }
 
-        if components.hour > 0 {
-            if components.hour < 2 {
+        if components.hour! > 0 {
+            if components.hour! < 2 {
                 return NSDateTimeAgoLocalizedStrings("An hour ago")
             } else  {
                 return self.string(fromFormat: "%%d %@hours ago", withValue: components.hour!)
             }
         }
 
-        if components.minute > 0 {
-            if components.minute < 2 {
+        if components.minute! > 0 {
+            if components.minute! < 2 {
                 return NSDateTimeAgoLocalizedStrings("A minute ago")
             } else {
                 return self.string(fromFormat: "%%d %@minutes ago", withValue: components.minute!)
             }
         }
 
-        if components.second > 0 {
-            if components.second < 5 {
+        if components.second! > 0 {
+            if components.second! < 5 {
                 return NSDateTimeAgoLocalizedStrings("Just now")
             } else {
                 return self.string(fromFormat: "%%d %@seconds ago", withValue: components.second!)
