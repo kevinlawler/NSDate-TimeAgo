@@ -192,6 +192,7 @@
 				TargetAttributes = {
 					535788311CD03AAB00F72193 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					833CD3771BCD9BD90085A751 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -304,6 +305,7 @@
 				PRODUCT_NAME = NSDateTimeAgo;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -328,6 +330,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
