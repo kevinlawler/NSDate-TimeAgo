@@ -195,6 +195,7 @@
 					};
 					833CD3771BCD9BD90085A751 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 					};
 					83AC39081BD066C500A9C7F7 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -431,6 +432,7 @@
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -449,6 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinlawler.NSDateTimeAgo;
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
