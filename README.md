@@ -19,6 +19,7 @@ This functionality has variously been referred to as a "time ago", "time since",
 `NSDate+TimeAgo` currently supports the following languages: 
 
 - en (English)
+- ee (Estonian)
 - es (Spanish)
 - zh_Hans (Chinese Simplified)
 - zh_Hant (Chinese Traditional)
