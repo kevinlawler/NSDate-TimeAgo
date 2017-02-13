@@ -24,7 +24,9 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
 - (NSString *)timeAgoSimple
 {
     NSDate *now = [NSDate date];
-    double deltaSeconds = fabs([self timeIntervalSinceDate:now]);
+    NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
+    NSDate *dateInLocalTimezone = [now dateByAddingTimeInterval:timeZoneSeconds];
+    double deltaSeconds = fabs([self timeIntervalSinceDate:dateInLocalTimezone]);
     double deltaMinutes = deltaSeconds / 60.0f;
     
     int value;
