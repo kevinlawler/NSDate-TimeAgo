@@ -134,7 +134,7 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
 // Similar to timeAgo, but only returns "
 - (NSString *)dateTimeAgo
 {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDate * now = [NSDate date];
     NSDateComponents *components = [calendar components:
                                     NSCalendarUnitYear|
@@ -210,7 +210,7 @@ NSLocalizedStringFromTableInBundle(key, @"NSDateTimeAgo", [NSBundle bundleWithPa
 - (NSString *)dateTimeUntilNow
 {
     NSDate * now = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
     NSDateComponents *components = [calendar components:NSCalendarUnitHour
                                                fromDate:self
