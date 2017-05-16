@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license               = { :type => 'ISC', :file => 'LICENSE' }
   s.author                = { 'Kevin Lawler' => 'k.concerns@gmail.com' }
   s.source                = { :git => 'https://github.com/kevinlawler/NSDate-TimeAgo.git', :tag => "v#{s.version.to_s}" }
-  s.source_files          =  '*.{h,m}'
+  s.source_files          =  '*.{h,m}, *.swift'
   s.resources             = 'NSDateTimeAgo.bundle'
   s.requires_arc          = true
 end
