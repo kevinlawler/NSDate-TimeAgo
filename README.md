@@ -52,6 +52,11 @@ This functionality has variously been referred to as a "time ago", "time since",
 - sq (Albanian)
 - sk (Slovak)
 - ms (Malay)
+- km (Cambodian)
+- id (Bahasa-Indonesia)
+- mn (Mongolian)
+- ur (Urdu)
+
 
 If you know a language not listed here, please consider submitting a translation. [Localization codes by language](http://stackoverflow.com/questions/3040677/locale-codes-for-iphone-lproj-folders).
 
@@ -151,3 +156,12 @@ Maggi Trymbill added `is` Icelandic strings. https://github.com/grundvollur
 
 Erid Bardhaj added `sq` Albanian strings. https://github.com/eridbardhaj
 
+Joan Biscarri added `ca` Catalan strings. https://github.com/jbiscarri
+
+Gantulga added `mn` Mongolian strings. https://github.com/gangstarmn
+
+ali-ehsan added `ur` Urdu strings. https://github.com/ali-ehsan
+
+Zonily Jame Pesquera added `id` Bahasa Indonesia strings. https://github.com/kuyazee
+
+Zonily Jame Pesquera added `km` Khmer strings. https://github.com/kuyazee
