@@ -73,35 +73,35 @@ extension Date {
     // does not include interim summary options such as 'Just now'
     public var timeAgoSimple: String {
         let components = self.dateComponents()
-
-        if components.year! > 0 {
-            return Helper.string(from: "%%d%@yr", with: components.year!)
+        
+        if let year = components.year, year > 0 {
+            return Helper.string(from: "%%d%@yr", with: year)
         }
 
-        if components.month! > 0 {
-            return Helper.string(from: "%%d%@mo", with: components.month!)
+        if let month = components.month, month > 0 {
+            return Helper.string(from: "%%d%@mo", with: month)
         }
 
         // TODO: localize for other calanders
-        if components.day! >= 7 {
-            let value = components.day!/7
-            return Helper.string(from: "%%d%@w", with: value)
+        if let day = components.day  {
+            if day >= 7 {
+                let value = day / 7
+                return Helper.string(from: "%%d%@w", with: value)
+            } else if day > 0 {
+                return Helper.string(from: "%%d%@d", with: day)
+            }
         }
 
-        if components.day! > 0 {
-            return Helper.string(from: "%%d%@d", with: components.day!)
+        if let hour = components.hour, hour > 0 {
+            return Helper.string(from: "%%d%@h", with: hour)
         }
 
-        if components.hour! > 0 {
-            return Helper.string(from: "%%d%@h", with: components.hour!)
+        if let minute = components.minute, minute > 0 {
+            return Helper.string(from: "%%d%@m", with: minute)
         }
 
-        if components.minute! > 0 {
-            return Helper.string(from: "%%d%@m", with: components.minute!)
-        }
-
-        if components.second! > 0 {
-            return Helper.string(from: "%%d%@s", with: components.second! )
+        if let second = components.second, second > 0 {
+            return Helper.string(from: "%%d%@s", with: second)
         }
 
         return ""
@@ -110,61 +110,61 @@ extension Date {
     public var timeAgo: String {
         let components = self.dateComponents()
 
-        if components.year! > 0 {
-            if components.year! < 2 {
+        if let year = components.year, year > 0 {
+            if year < 2 {
                 return Helper.localizedStrings(for: "Last year")
             } else {
-                return Helper.string(from: "%%d %@years ago", with: components.year!)
+                return Helper.string(from: "%%d %@years ago", with: year)
             }
         }
 
-        if components.month! > 0 {
-            if components.month! < 2 {
+        if let month = components.month, month > 0 {
+            if month < 2 {
                 return Helper.localizedStrings(for: "Last month")
             } else {
-                return Helper.string(from: "%%d %@months ago", with: components.month!)
+                return Helper.string(from: "%%d %@months ago", with: month)
             }
         }
 
         // TODO: localize for other calanders
-        if components.day! >= 7 {
-            let week = components.day!/7
-            if week < 2 {
-                return Helper.localizedStrings(for: "Last week")
-            } else {
-                return Helper.string(from: "%%d %@weeks ago", with: week)
+        if let day = components.day {
+            if day >= 7 {
+                let week = day / 7
+                if week < 2 {
+                    return Helper.localizedStrings(for: "Last week")
+                } else {
+                    return Helper.string(from: "%%d %@weeks ago", with: week)
+                }
+            } else if day > 0  {
+                if day < 2 {
+                    return Helper.localizedStrings(for: "Yesterday")
+                } else  {
+                    return Helper.string(from: "%%d %@days ago", with: day)
+                }
             }
         }
 
-        if components.day! > 0 {
-            if components.day! < 2 {
-                return Helper.localizedStrings(for: "Yesterday")
-            } else  {
-                return Helper.string(from: "%%d %@days ago", with: components.day!)
-            }
-        }
-
-        if components.hour! > 0 {
-            if components.hour! < 2 {
+        if let hour = components.hour, hour > 0 {
+            if hour < 2 {
                 return Helper.localizedStrings(for: "An hour ago")
             } else  {
-                return Helper.string(from: "%%d %@hours ago", with: components.hour!)
+                return Helper.string(from: "%%d %@hours ago", with: hour)
             }
         }
 
-        if components.minute! > 0 {
-            if components.minute! < 2 {
+        if let minute = components.minute, minute > 0 {
+            if minute < 2 {
                 return Helper.localizedStrings(for: "A minute ago")
             } else {
-                return Helper.string(from: "%%d %@minutes ago", with: components.minute!)
+                return Helper.string(from: "%%d %@minutes ago", with: minute)
             }
         }
 
-        if components.second! > 0 {
-            if components.second! < 5 {
+        if let second = components.second, second > 0 {
+            if second < 5 {
                 return Helper.localizedStrings(for: "Just now")
             } else {
-                return Helper.string(from: "%%d %@seconds ago", with: components.second!)
+                return Helper.string(from: "%%d %@seconds ago", with: second)
             }
         }
         
