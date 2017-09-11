@@ -9,27 +9,61 @@
 
 import Foundation
 
-func NSDateTimeAgoLocalizedStrings(_ key: String) -> String {
-    let resourcePath: String?
-
-    if let frameworkBundle = Bundle(identifier: "com.kevinlawler.NSDateTimeAgo") {
-        // Load from Framework
-        resourcePath = frameworkBundle.resourcePath
-    } else {
-        // Load from Main Bundle
-        resourcePath = Bundle.main.resourcePath
+private struct Helper {
+    
+    static let bundle: Bundle? = {
+        let resourcePath: String?
+        if let frameworkBundle = Bundle(identifier: "com.kevinlawler.NSDateTimeAgo") {
+            // Load from Framework
+            resourcePath = frameworkBundle.resourcePath
+        } else {
+            // Load from Main Bundle
+            resourcePath = Bundle.main.resourcePath
+        }
+        guard let pathString = resourcePath else {
+            return nil
+        }
+        let path = URL(fileURLWithPath: pathString).appendingPathComponent("NSDateTimeAgo.bundle")
+        return Bundle(url: path)
+    }()
+    
+    static func localizedStrings(for key: String) -> String {
+        guard let bundle = bundle else {
+            return ""
+        }
+        return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle, comment: "")
     }
-
-    if resourcePath == nil {
+    
+    static func string(from format: String, with value: Int) -> String {
+        let localeFormat = String(format: format, localeFormatUnderscores(with: Double(value)))
+        return String(format: localizedStrings(for: localeFormat), value)
+    }
+    
+    static func localeFormatUnderscores(with value: Double) -> String {
+        guard let localeCode = Locale.preferredLanguages.first else {
+            return ""
+        }
+        
+        // Russian (ru) and Ukrainian (uk)
+        if localeCode.hasPrefix("ru") || localeCode.hasPrefix("uk") {
+            let XY = Int(floor(value)) % 100
+            let Y = Int(floor(value)) % 10
+            
+            if Y == 0 || Y > 4 || (XY > 10 && XY < 15) {
+                return ""
+            }
+            
+            if Y > 1 && Y < 5 && (XY < 10 || XY > 20) {
+                return "_"
+            }
+            
+            if Y == 1 && XY != 11 {
+                return "__"
+            }
+        }
+        
         return ""
     }
-
-    let path = URL(fileURLWithPath: resourcePath!).appendingPathComponent("NSDateTimeAgo.bundle")
-    guard let bundle = Bundle(url: path) else {
-        return ""
-    }
-
-    return NSLocalizedString(key, tableName: "NSDateTimeAgo", bundle: bundle, comment: "")
 }
 
 extension Date {
@@ -41,33 +75,33 @@ extension Date {
         let components = self.dateComponents()
 
         if components.year! > 0 {
-            return self.string(fromFormat: "%%d%@yr", withValue: components.year!)
+            return Helper.string(from: "%%d%@yr", with: components.year!)
         }
 
         if components.month! > 0 {
-            return self.string(fromFormat: "%%d%@mo", withValue: components.month!)
+            return Helper.string(from: "%%d%@mo", with: components.month!)
         }
 
         // TODO: localize for other calanders
         if components.day! >= 7 {
             let value = components.day!/7
-            return self.string(fromFormat: "%%d%@w", withValue: value)
+            return Helper.string(from: "%%d%@w", with: value)
         }
 
         if components.day! > 0 {
-            return self.string(fromFormat: "%%d%@d", withValue: components.day!)
+            return Helper.string(from: "%%d%@d", with: components.day!)
         }
 
         if components.hour! > 0 {
-            return self.string(fromFormat: "%%d%@h", withValue: components.hour!)
+            return Helper.string(from: "%%d%@h", with: components.hour!)
         }
 
         if components.minute! > 0 {
-            return self.string(fromFormat: "%%d%@m", withValue: components.minute!)
+            return Helper.string(from: "%%d%@m", with: components.minute!)
         }
 
         if components.second! > 0 {
-            return self.string(fromFormat: "%%d%@s", withValue: components.second! )
+            return Helper.string(from: "%%d%@s", with: components.second! )
         }
 
         return ""
@@ -78,17 +112,17 @@ extension Date {
 
         if components.year! > 0 {
             if components.year! < 2 {
-                return NSDateTimeAgoLocalizedStrings("Last year")
+                return Helper.localizedStrings(for: "Last year")
             } else {
-                return self.string(fromFormat: "%%d %@years ago", withValue: components.year!)
+                return Helper.string(from: "%%d %@years ago", with: components.year!)
             }
         }
 
         if components.month! > 0 {
             if components.month! < 2 {
-                return NSDateTimeAgoLocalizedStrings("Last month")
+                return Helper.localizedStrings(for: "Last month")
             } else {
-                return self.string(fromFormat: "%%d %@months ago", withValue: components.month!)
+                return Helper.string(from: "%%d %@months ago", with: components.month!)
             }
         }
 
@@ -96,41 +130,41 @@ extension Date {
         if components.day! >= 7 {
             let week = components.day!/7
             if week < 2 {
-                return NSDateTimeAgoLocalizedStrings("Last week")
+                return Helper.localizedStrings(for: "Last week")
             } else {
-                return self.string(fromFormat: "%%d %@weeks ago", withValue: week)
+                return Helper.string(from: "%%d %@weeks ago", with: week)
             }
         }
 
         if components.day! > 0 {
             if components.day! < 2 {
-                return NSDateTimeAgoLocalizedStrings("Yesterday")
+                return Helper.localizedStrings(for: "Yesterday")
             } else  {
-                return self.string(fromFormat: "%%d %@days ago", withValue: components.day!)
+                return Helper.string(from: "%%d %@days ago", with: components.day!)
             }
         }
 
         if components.hour! > 0 {
             if components.hour! < 2 {
-                return NSDateTimeAgoLocalizedStrings("An hour ago")
+                return Helper.localizedStrings(for: "An hour ago")
             } else  {
-                return self.string(fromFormat: "%%d %@hours ago", withValue: components.hour!)
+                return Helper.string(from: "%%d %@hours ago", with: components.hour!)
             }
         }
 
         if components.minute! > 0 {
             if components.minute! < 2 {
-                return NSDateTimeAgoLocalizedStrings("A minute ago")
+                return Helper.localizedStrings(for: "A minute ago")
             } else {
-                return self.string(fromFormat: "%%d %@minutes ago", withValue: components.minute!)
+                return Helper.string(from: "%%d %@minutes ago", with: components.minute!)
             }
         }
 
         if components.second! > 0 {
             if components.second! < 5 {
-                return NSDateTimeAgoLocalizedStrings("Just now")
+                return Helper.localizedStrings(for: "Just now")
             } else {
-                return self.string(fromFormat: "%%d %@seconds ago", withValue: components.second!)
+                return Helper.string(from: "%%d %@seconds ago", with: components.second!)
             }
         }
         
@@ -141,36 +175,5 @@ extension Date {
         return Calendar.current.dateComponents([.second, .minute, .hour, .day, .month, .year], from: self, to: Date())
     }
 
-    fileprivate func string(fromFormat format: String, withValue value: Int) -> String {
-        let localeFormat = String(format: format, getLocaleFormatUnderscores(withValue: Double(value)))
-        return String(format: NSDateTimeAgoLocalizedStrings(localeFormat), value)
-    }
-    
-    fileprivate func getLocaleFormatUnderscores(withValue value: Double) -> String {
-        guard let localeCode = Locale.preferredLanguages.first else {
-            return ""
-        }
-        
-        // Russian (ru) and Ukrainian (uk)
-        if localeCode.hasPrefix("ru") || localeCode.hasPrefix("uk") {
-            let XY = Int(floor(value)) % 100
-            let Y = Int(floor(value)) % 10
-
-            if Y == 0 || Y > 4 || (XY > 10 && XY < 15) {
-                return ""
-            }
-
-            if Y > 1 && Y < 5 && (XY < 10 || XY > 20) {
-                return "_"
-            }
-
-            if Y == 1 && XY != 11 {
-                return "__"
-            }
-        }
-        
-        return ""
-    }
-    
 }
 
