@@ -21,11 +21,11 @@ class NSDateTimeAgoTests: XCTestCase {
         super.tearDown()
     }
 
-    func dateForComponents(block: (components: NSDateComponents) -> Void) -> NSDate? {
-        let calander = NSCalendar.currentCalendar()
-        let components = NSDateComponents()
-        block(components: components)
-        return calander.dateByAddingComponents(components, toDate: NSDate(), options: [])
+    func dateForComponents(block: (_ components: inout DateComponents) -> Void) -> Date? {
+        let calander = Calendar.current
+        var components = DateComponents()
+        block(&components)
+        return calander.date(byAdding: components, to: Date())
     }
 
     // MARK: - timeAgoSimple
