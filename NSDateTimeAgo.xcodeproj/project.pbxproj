@@ -195,7 +195,7 @@
 					};
 					833CD3771BCD9BD90085A751 = {
 						CreatedOnToolsVersion = 7.0.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = "";
 					};
 					83AC39081BD066C500A9C7F7 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -460,8 +460,7 @@
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -483,8 +482,7 @@
 				PRODUCT_NAME = NSDateTimeAgo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
